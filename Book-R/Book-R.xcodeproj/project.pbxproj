@@ -11,10 +11,9 @@
 		E8F08E47229311DC0083B700 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8F08E45229311DC0083B700 /* Main.storyboard */; };
 		E8F08E49229311DD0083B700 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8F08E48229311DD0083B700 /* Assets.xcassets */; };
 		E8F08E4C229311DD0083B700 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8F08E4A229311DD0083B700 /* LaunchScreen.storyboard */; };
-		E8F08E55229313DE0083B700 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F08E54229313DE0083B700 /* SignInViewController.swift */; };
+		E8F08E55229313DE0083B700 /* SignInSignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F08E54229313DE0083B700 /* SignInSignUPViewController.swift */; };
 		E8F08E5722931ACC0083B700 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F08E5622931ACC0083B700 /* APIController.swift */; };
 		E8F08E5A229336F30083B700 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F08E59229336F30083B700 /* User.swift */; };
-		E8F08E6022934D5B0083B700 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F08E5F22934D5B0083B700 /* SignUpViewController.swift */; };
 		E8F08E6222934D9A0083B700 /* LogInSignUPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F08E6122934D9A0083B700 /* LogInSignUPHomeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,10 +24,9 @@
 		E8F08E48229311DD0083B700 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8F08E4B229311DD0083B700 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8F08E4D229311DD0083B700 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E8F08E54229313DE0083B700 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		E8F08E54229313DE0083B700 /* SignInSignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSignUPViewController.swift; sourceTree = "<group>"; };
 		E8F08E5622931ACC0083B700 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		E8F08E59229336F30083B700 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		E8F08E5F22934D5B0083B700 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E8F08E6122934D9A0083B700 /* LogInSignUPHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInSignUPHomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,8 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				E8F08E6122934D9A0083B700 /* LogInSignUPHomeViewController.swift */,
-				E8F08E54229313DE0083B700 /* SignInViewController.swift */,
-				E8F08E5F22934D5B0083B700 /* SignUpViewController.swift */,
+				E8F08E54229313DE0083B700 /* SignInSignUPViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -174,9 +171,8 @@
 				E8F08E5A229336F30083B700 /* User.swift in Sources */,
 				E8F08E6222934D9A0083B700 /* LogInSignUPHomeViewController.swift in Sources */,
 				E8F08E42229311DC0083B700 /* AppDelegate.swift in Sources */,
-				E8F08E55229313DE0083B700 /* SignInViewController.swift in Sources */,
+				E8F08E55229313DE0083B700 /* SignInSignUPViewController.swift in Sources */,
 				E8F08E5722931ACC0083B700 /* APIController.swift in Sources */,
-				E8F08E6022934D5B0083B700 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
