@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NetworkController {
+class APIController {
 	
 	//network methods
 	
