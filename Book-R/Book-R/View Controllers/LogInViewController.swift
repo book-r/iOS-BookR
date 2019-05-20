@@ -13,7 +13,14 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+	
 	@IBAction func signInButton(_ sender: Any) {
+		guard let username = usernameLabel.text,
+			let password = passwordLabel.text else { return }
+		
+		
+		print(username," - ", password)
+		
 	}
 	
 	@IBOutlet var singInButtonOutlet: UIButton!
