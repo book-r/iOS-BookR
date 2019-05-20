@@ -32,7 +32,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="signInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iM9-PU-KYX"/>
+                                            <action selector="signInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lv1-An-eSb"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CyU-Wz-W5W">
@@ -79,9 +79,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="passwordLabel" destination="CyU-Wz-W5W" id="D8a-Lp-iPy"/>
-                        <outlet property="singInButtonOutlet" destination="JTG-CW-tGr" id="FOt-1K-Tlx"/>
-                        <outlet property="usernameLabel" destination="5eh-bT-swk" id="AfO-ni-r4G"/>
+                        <outlet property="passwordLabel" destination="CyU-Wz-W5W" id="SAr-M2-Y56"/>
+                        <outlet property="singInButtonOutlet" destination="JTG-CW-tGr" id="Vcl-3E-0O3"/>
+                        <outlet property="usernameLabel" destination="5eh-bT-swk" id="aJL-zS-BgA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -109,6 +109,9 @@
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signUpButton:" destination="2gy-S2-QcC" eventType="touchUpInside" id="Dkg-ux-xSE"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-Type Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t5t-yI-Z8J">
                                         <rect key="frame" x="30" y="128" width="354" height="30"/>
@@ -126,7 +129,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" textContentType="username"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIs-H9-yzg">
                                         <rect key="frame" x="207" y="60" width="0.0" height="0.0"/>
@@ -141,7 +144,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" textContentType="username"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="email"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -173,6 +176,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lHs-vQ-Axs"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordLabel" destination="bSY-bo-MfH" id="cbO-M7-fNL"/>
+                        <outlet property="reTypePasswordLabel" destination="t5t-yI-Z8J" id="Kfb-9G-YL6"/>
+                        <outlet property="signUpButtonOutlet" destination="Z1B-NT-c4L" id="C7T-cv-Vtq"/>
+                        <outlet property="usernameLabel" destination="7uG-Py-Ief" id="vmB-OB-ZCR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDS-nY-nsr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
