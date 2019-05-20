@@ -13,5 +13,11 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+	@IBAction func signInButton(_ sender: Any) {
+	}
+	
+	@IBOutlet var singInButtonOutlet: UIButton!
+	
+	@IBOutlet var usernameLabel: UITextField!
+	@IBOutlet var passwordLabel: UITextField!
 }
