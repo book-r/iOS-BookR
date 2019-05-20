@@ -8,13 +8,23 @@
 
 import UIKit
 
+enum HTTPMethod: String {
+	case get = "GET"
+	case post = "Post"
+}
+
+
+
 class APIController {
 	
-	//network methods
 	
 	
 	
 	
+	func signIn(with user: User, completion: @escaping (Error?) -> ()) {
 	
+		
+	}
 	
+	private let baseUrl = URL(string: "")
 }

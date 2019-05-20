@@ -13,6 +13,7 @@
 		E8F08E4C229311DD0083B700 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8F08E4A229311DD0083B700 /* LaunchScreen.storyboard */; };
 		E8F08E55229313DE0083B700 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F08E54229313DE0083B700 /* LogInViewController.swift */; };
 		E8F08E5722931ACC0083B700 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F08E5622931ACC0083B700 /* APIController.swift */; };
+		E8F08E5A229336F30083B700 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F08E59229336F30083B700 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E8F08E4D229311DD0083B700 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8F08E54229313DE0083B700 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		E8F08E5622931ACC0083B700 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		E8F08E59229336F30083B700 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				E8F08E41229311DC0083B700 /* AppDelegate.swift */,
+				E8F08E59229336F30083B700 /* User.swift */,
 				E8F08E5822931AD40083B700 /* Controllers */,
 				E8F08E53229313A80083B700 /* View Controllers */,
 				E8F08E45229311DC0083B700 /* Main.storyboard */,
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8F08E5A229336F30083B700 /* User.swift in Sources */,
 				E8F08E42229311DC0083B700 /* AppDelegate.swift in Sources */,
 				E8F08E55229313DE0083B700 /* LogInViewController.swift in Sources */,
 				E8F08E5722931ACC0083B700 /* APIController.swift in Sources */,

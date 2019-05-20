@@ -21,6 +21,10 @@ class LogInViewController: UIViewController {
 		
 		print(username," - ", password)
 		
+		usernameLabel.text = nil
+		passwordLabel.text = nil
+		
+		
 	}
 	
 	@IBOutlet var singInButtonOutlet: UIButton!
