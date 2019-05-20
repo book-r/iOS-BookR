@@ -19,7 +19,9 @@ class APIController {
 	
 	
 	
-	
+	func signUn(with user: User, completion: @escaping (Error?) -> ()) {
+		
+	}
 	
 	func signIn(with user: User, completion: @escaping (Error?) -> ()) {
 		// CHECK DOCS
@@ -57,7 +59,7 @@ class APIController {
 //				completion(error)
 //				return
 //			}
-//			
+//
 //			do {
 //				let decoder = JSONDecoder()
 ////				self.someModel = try decoder.decode(someMOdel.self, from: dats)
