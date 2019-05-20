@@ -22,7 +22,16 @@ class APIController {
 	
 	
 	func signIn(with user: User, completion: @escaping (Error?) -> ()) {
-	
+		// CHECK DOCS
+		let url = baseUrl?.appendingPathComponent("users/login")
+		
+		var request = URLRequest(url: url!)
+		request.httpMethod = HTTPMethod.post.rawValue
+		
+		//encode to json
+		
+		
+		// make urlsession
 		
 	}
 	
