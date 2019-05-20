@@ -29,7 +29,14 @@ class APIController {
 		request.httpMethod = HTTPMethod.post.rawValue
 		
 		//encode to json
-		
+		let encoder = JSONEncoder()
+		do {
+			let jsonData = try encoder.encode(user)
+			request.httpBody = jsonData
+		} catch {
+			print("Error encoding user model: \(error)")
+			completion(error)
+		}
 		
 		// make urlsession
 		
