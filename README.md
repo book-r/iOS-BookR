@@ -1,8 +1,10 @@
 # iOS-BookR
  
-#### Pitch: Bookr is your source for all things Text Book. Picture the AirBNB of text books, a social platform for peer reviewed text books. 
+#### Pitch: 
+###### Bookr is your source for all things Text Book. Picture the AirBNB of text books, a social platform for peer reviewed text books. 
 
-* MVP: As a user I can log in, and see a list of text books. Each book will have a 5 star rating I can browse from. As a user I can review each book. 
+##### MVP:
+* As a user I can log in, and see a list of text books. Each book will have a 5 star rating I can browse from. As a user I can review each book. 
 * Login Page - After a user logs in, they'll be directed to a home page.
 * Navigation - Navigation is present on all pages, Users should know what page is active by clicking on a nav link and activating their tab.
 * Home Page - Contains a list of Books laid out in a grid format.
