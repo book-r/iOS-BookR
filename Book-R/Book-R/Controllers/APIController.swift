@@ -74,7 +74,13 @@ class APIController {
 		
 	}
 	
+	func fetchBooks(completion: @escaping (Error?) -> ()) {
+		
+	}
+	
 	private let baseUrl = URL(string: "")
+	private(set) var Books: [Book] = []
+	
 }
 
 
