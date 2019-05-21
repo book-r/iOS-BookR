@@ -87,8 +87,8 @@
 			children = (
 				E81502902293B7A60015329A /* BookRTabBarController.swift */,
 				E8F08E54229313DE0083B700 /* SignInSignUPViewController.swift */,
-				E8150298229453660015329A /* SearchTableViewController.swift */,
 				E81502942293C4970015329A /* FavoritesCollectionViewController.swift */,
+				E8150298229453660015329A /* SearchTableViewController.swift */,
 				E815029A229453910015329A /* settingsTableViewController.swift */,
 			);
 			path = "View Controllers";
