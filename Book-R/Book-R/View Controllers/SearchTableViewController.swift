@@ -13,21 +13,25 @@ class SearchTableViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
 		searchBar.delegate = self
+		tableView.reloadData()
 	}
 
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 10
+		return apiController?.books.count ?? 0
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "bookSerachCell", for: indexPath)
+		guard let bookcell = cell as? SearchTableViewCell else { return cell }
 		
-		return cell
+		let book = apiController?.books[indexPath.row]
+		bookcell.book = book
+		return bookcell
 	}
 	
-	
 	@IBOutlet var searchBar: UISearchBar!
+	var apiController: APIController?
 }
 
 
