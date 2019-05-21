@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchTableViewController: UITableViewController{
+class SearchTableViewController: UITableViewController, APIControllerProtocol{
 
     override func viewDidLoad() {
         super.viewDidLoad()

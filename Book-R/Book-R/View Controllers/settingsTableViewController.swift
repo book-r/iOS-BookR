@@ -8,11 +8,11 @@
 
 import UIKit
 
-class settingsTableViewController: UITableViewController {
+class settingsTableViewController: UITableViewController, APIControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
 	}
-
+	var apiController: APIController?
 }

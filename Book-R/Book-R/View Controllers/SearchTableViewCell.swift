@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchTableViewCell: UITableViewCell {
+class SearchTableViewCell: UITableViewCell, APIControllerProtocol {
 
 	
 	private func setupViews() {
@@ -22,6 +22,7 @@ class SearchTableViewCell: UITableViewCell {
 	@IBOutlet var bookImageView: UIImageView!
 	@IBOutlet var titleLabel: UILabel!
 	@IBOutlet var isbnLabel: UILabel!
+	var apiController: APIController?
 	
 	var book: Book? {
 		didSet { setupViews()}

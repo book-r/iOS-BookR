@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol APIControllerProtocol {
+	var apiController: APIController? { get set }
+}
+
 class BookRTabBarController: UITabBarController {
 
 
@@ -20,11 +24,9 @@ class BookRTabBarController: UITabBarController {
 		}
 		
 		
-//		for childVC in children {
-//			if let vc = childVC as? controllerProtocal {
-//				vc.controller = controller
-//			}
-//		}
+		for childVC in children {
+			
+		}
 		
     }
 	

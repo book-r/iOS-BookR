@@ -27,5 +27,6 @@ class FavoritesCollectionViewController: UICollectionViewController {
 		return cell
 	}
 	
+	var apiController: APIController?
 	@IBOutlet var imageView: UIImageView!
 }
