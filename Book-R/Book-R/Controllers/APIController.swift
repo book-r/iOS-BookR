@@ -73,7 +73,6 @@ class APIController {
 	
 	func fetchBooks(completion: @escaping (Error?) -> ()) {
 		URLSession.shared.dataTask(with: baseUrl!) { (data, _, error) in
-			
 			if let error = error {
 				completion(error)
 				return
@@ -85,8 +84,9 @@ class APIController {
 			}
 			
 			do {
-				let students = try JSONDecoder().decode([Book].self, from: data)
-				print(students)
+				let booksDecoded = try JSONDecoder().decode([Book].self, from: data)
+				print(booksDecoded)
+				self.books = booksDecoded
 				completion(nil)
 			} catch {
 				completion(error)
@@ -97,7 +97,7 @@ class APIController {
 	}
 	
 	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books/")
-	private(set) var Books: [Book] = []
+	private(set) var books: [Book] = []
 	
 }
 
