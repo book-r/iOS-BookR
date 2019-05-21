@@ -222,10 +222,10 @@
             </objects>
             <point key="canvasLocation" x="3028.985507246377" y="762.72321428571422"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--BookR Tab Bar Controller-->
         <scene sceneID="r9w-HM-7wp">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Rdl-hM-9dw" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Rdl-hM-9dw" customClass="BookRTabBarController" customModule="Book_R" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="OPi-li-LBp"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1ff-Lz-2SO">
