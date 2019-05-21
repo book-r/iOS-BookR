@@ -97,15 +97,15 @@ class APIController {
 	}
 	
 	
-	func fetchBookDetail(bookID: Int, completion: @escaping (Error?) -> ()) {
+	func fetchBookDetail(bookID: Int, completion: @escaping (Result<BookDetail, Error>) -> ()) {
 		URLSession.shared.dataTask(with: baseUrl!) { (data, _, error) in
 			if let error = error {
-				completion(error)
+				completion(.failure(error))
 				return
 			}
 			
 			guard let data = data else {
-				completion(NSError())
+				completion(.failure(NSError()))
 				return
 			}
 			
@@ -113,13 +113,12 @@ class APIController {
 				let bookDecoded = try JSONDecoder().decode(BookDetail.self, from: data)
 				print(bookDecoded)
 				self.bookDetail.append(bookDecoded)
-				completion(nil)
+				completion(.success(bookDecoded))
 			} catch {
-				completion(error)
+				completion(.failure(error))
 				return
 			}
-			
-			}.resume()
+		}.resume()
 	}
 	
 	func fetchImage(with url: String, completion: @escaping (Result<UIImage, Error>) -> ()){
