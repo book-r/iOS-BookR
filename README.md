@@ -17,4 +17,4 @@
 
 #
 
-[Book-R AP](https://lambda-bookr.herokuapp.com/api/)
+[Book-R API](https://lambda-bookr.herokuapp.com/api/)
