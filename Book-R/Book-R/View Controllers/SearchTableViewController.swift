@@ -8,11 +8,16 @@
 
 import UIKit
 
-class FavoritesTableViewController: UITableViewController {
+class SearchTableViewController: UITableViewController, UISearchBarDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		searchBar.delegate = self
 	}
 
+	func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+		print(searchBar.text!)
+	}
+	
+	@IBOutlet var searchBar: UISearchBar!
 }

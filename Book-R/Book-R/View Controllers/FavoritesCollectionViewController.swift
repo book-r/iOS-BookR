@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class SearchCollectionViewController: UICollectionViewController {
+class FavoritesCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,4 +26,6 @@ class SearchCollectionViewController: UICollectionViewController {
 		
 		return cell
 	}
+	
+	@IBOutlet var imageView: UIImageView!
 }
