@@ -38,4 +38,5 @@ class SignInSignUpViewController: UIViewController {
 	
 	@IBOutlet var usernameLabel: UITextField!
 	@IBOutlet var passwordLabel: UITextField!
+	@IBOutlet var segmentController: UISegmentedControl!
 }

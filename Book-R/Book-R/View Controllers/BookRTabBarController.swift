@@ -10,21 +10,31 @@ import UIKit
 
 class BookRTabBarController: UITabBarController {
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+		
+		
+		
+//		for childVC in children {
+//			if let vc = childVC as? controllerProtocal {
+//				vc.controller = controller
+//			}
+//		}
+		
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+	
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		
+		if segue.identifier == "" {
+			guard let vc = segue.destination as? SignInSignUpViewController else { return }
+			//send controller to sign in
+			
+		}
+		
+	}
+	
+	
 
 }
