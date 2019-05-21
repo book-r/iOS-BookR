@@ -16,6 +16,9 @@ class SearchTableViewCell: UITableViewCell, APIControllerProtocol {
 		
 		titleLabel.text =  book.title
 		isbnLabel.text = book.isbn
+		
+		
+		
 //		bookImageView.image = UIImage(data: book.cover_url)
 	}
 	

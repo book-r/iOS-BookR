@@ -14,6 +14,8 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		performSegue(withIdentifier: "SignInSegue", sender: nil)
 	}
 	
 	

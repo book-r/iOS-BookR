@@ -25,9 +25,17 @@ struct BookDetail: Codable, Equatable {
 }
 
 struct Author: Codable, Equatable {
-	
+	let id: Int
+	let name: String
 }
 
 
 struct Review: Codable, Equatable {
+//	let id: Int
+	let rating: Int
+	let comment: String
+	let book_id: Int
+	let user_id: Int
+//	let title: String
+//	let username: String
 }

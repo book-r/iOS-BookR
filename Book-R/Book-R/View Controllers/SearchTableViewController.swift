@@ -27,6 +27,7 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol{
 		
 		let book = apiController?.books[indexPath.row]
 		bookcell.book = book
+		bookcell.apiController = apiController
 		return bookcell
 	}
 	
