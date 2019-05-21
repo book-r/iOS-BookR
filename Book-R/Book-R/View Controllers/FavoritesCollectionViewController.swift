@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class FavoritesCollectionViewController: UICollectionViewController {
+class FavoritesCollectionViewController: UICollectionViewController, APIControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()

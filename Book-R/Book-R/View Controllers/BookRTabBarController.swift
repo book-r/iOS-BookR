@@ -14,7 +14,6 @@ protocol APIControllerProtocol {
 
 class BookRTabBarController: UITabBarController {
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 		apiController.fetchBooks { error in
@@ -23,24 +22,27 @@ class BookRTabBarController: UITabBarController {
 			}
 		}
 		
-		
-		for childVC in children {
-			
+		print(children.count)
+		for childViewController in children {
+			if var childvc = childViewController as? APIControllerProtocol {
+				childvc.apiController = apiController
+			}
 		}
-		
-    }
-	
-	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		
-		if segue.identifier == "" {
-			guard let vc = segue.destination as? SignInSignUpViewController else { return }
-			//send controller to sign in
-			
-		}
-		
 	}
-	
-	
 	let apiController = APIController()
 }
+	
+	
+//	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//		if segue.identifier == "" {
+//			guard let vc = segue.destination as? SignInSignUpViewController else { return }
+//			//send controller to sign in
+//
+//		}
+//
+//	}
+	
+	
+
+
