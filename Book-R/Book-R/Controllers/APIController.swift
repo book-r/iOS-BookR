@@ -121,7 +121,28 @@ class APIController {
 			
 			}.resume()
 	}
-
+	
+	func fetchImage(with url: String, completion: @escaping (Result<UIImage, Error>) -> ()){
+		let imageurl = URL(string: url)!
+		var request = URLRequest(url: imageurl)
+		request.httpMethod = "GET"
+		
+		URLSession.shared.dataTask(with: request) { (data, _, error) in
+			if let error = error {
+				completion(.failure(error))
+				return
+			}
+			
+			guard 	let data = data,
+				let image = UIImage(data: data) else {
+					print("Error Converting data to image.")
+					completion(.failure(NSError()))
+					return
+			}
+			
+			completion(.success(image))
+			}.resume()
+	}
 	
 	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books/")
 	private(set) var books: [Book] = []
