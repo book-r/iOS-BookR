@@ -16,19 +16,21 @@ class BookRTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		
 		apiController.fetchBooks { error in
 			if let error = error {
 				print(error)
 			}
 		}
 		
-		print(children.count)
 		for childViewController in children {
 			if var childvc = childViewController as? APIControllerProtocol {
 				childvc.apiController = apiController
 			}
 		}
+		
 	}
+	
 	let apiController = APIController()
 }
 	
