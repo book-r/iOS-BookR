@@ -16,7 +16,7 @@ class SearchTableViewCell: UITableViewCell {
 		
 		titleLabel.text =  book.title
 		isbnLabel.text = book.isbn
-		bookImageView.image = UIImage(data: book.cover_url)
+//		bookImageView.image = UIImage(data: book.cover_url)
 	}
 	
 	@IBOutlet var bookImageView: UIImageView!

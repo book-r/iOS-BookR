@@ -16,9 +16,6 @@ enum HTTPMethod: String {
 
 
 class APIController {
-	
-	
-	
 	func signUn(with user: User, completion: @escaping (Error?) -> ()) {
 		
 	}
@@ -75,10 +72,31 @@ class APIController {
 	}
 	
 	func fetchBooks(completion: @escaping (Error?) -> ()) {
-		
+		URLSession.shared.dataTask(with: baseUrl!) { (data, _, error) in
+			
+			if let error = error {
+				completion(error)
+				return
+			}
+			
+			guard let data = data else {
+				completion(NSError())
+				return
+			}
+			
+			do {
+				let students = try JSONDecoder().decode([Book].self, from: data)
+				print(students)
+				completion(nil)
+			} catch {
+				completion(error)
+				return
+			}
+			
+			}.resume()
 	}
 	
-	private let baseUrl = URL(string: "")
+	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books/")
 	private(set) var Books: [Book] = []
 	
 }
