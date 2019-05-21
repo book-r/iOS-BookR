@@ -12,4 +12,6 @@ class BooksController {
 	
 	
 	
+	
+	private(set) var Books: [Book] = []
 }

@@ -9,15 +9,13 @@
 import Foundation
 
 struct Book: Codable, Equatable {
+	let id: Int
 	let title: String
 	let isbn: String
-	var image: Data
-	
-	
-	init (title: String, isbn: String, image: Data) {
-		self.title = title
-		self.isbn = isbn
-		self.image = image
-	}
-	
+	var cover_url: Data
+	let description: String
+	let edition: String
+	let year: Int
+	let publisher_id: Int
+	let publisher: String
 }
