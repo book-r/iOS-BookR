@@ -12,6 +12,7 @@ class SignInSignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		
     }
 	
 	@IBAction func signInButton(_ sender: Any) {

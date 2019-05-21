@@ -15,12 +15,12 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		performSegue(withIdentifier: "SignInSegue", sender: nil)
+		//performSegue(withIdentifier: "SignInSegue", sender: nil)
 	}
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 10
+		return 1
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

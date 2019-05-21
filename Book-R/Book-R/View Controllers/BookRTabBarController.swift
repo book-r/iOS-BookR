@@ -16,9 +16,7 @@ class BookRTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		
-		
+
 		apiController.fetchBooks { error in
 			if let error = error {
 				print(error)

@@ -19,7 +19,7 @@ class SearchTableViewCell: UITableViewCell, APIControllerProtocol {
 		
 		
 		
-//		bookImageView.image = UIImage(data: book.cover_url)
+		
 	}
 	
 	@IBOutlet var bookImageView: UIImageView!

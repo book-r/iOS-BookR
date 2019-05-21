@@ -10,6 +10,11 @@ import UIKit
 
 class SearchTableViewController: UITableViewController, APIControllerProtocol{
 
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		tableView.reloadData()
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		searchBar.delegate = self
@@ -28,6 +33,14 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol{
 		let book = apiController?.books[indexPath.row]
 		bookcell.book = book
 		bookcell.apiController = apiController
+		apiController?.fetchImage(with: book!.cover_url, completion: { result in
+			if let image = try? result.get() {
+				DispatchQueue.main.async {
+					bookcell.imageView?.image = image
+					self.tableView.reloadData()
+				}
+			}
+		})
 		return bookcell
 	}
 	
