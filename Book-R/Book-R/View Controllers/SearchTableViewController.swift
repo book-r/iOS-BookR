@@ -33,6 +33,7 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol{
 		let book = apiController?.books[indexPath.row]
 		bookcell.book = book
 		bookcell.apiController = apiController
+		
 		apiController?.fetchImage(with: book!.cover_url, completion: { result in
 			if let image = try? result.get() {
 				DispatchQueue.main.async {
@@ -41,6 +42,7 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol{
 				}
 			}
 		})
+		
 		return bookcell
 	}
 	
