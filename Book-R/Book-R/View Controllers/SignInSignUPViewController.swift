@@ -13,6 +13,8 @@ class SignInSignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+
+//		performSegue(withIdentifier: "notLoggedINSegue", sender: nil)
     }
 	
 	@IBAction func signInButton(_ sender: Any) {
@@ -33,6 +35,7 @@ class SignInSignUpViewController: UIViewController {
 		
 		usernameLabel.text = nil
 		passwordLabel.text = nil
+		dismiss(animated: true, completion: nil)
 	}
 	
 	@IBOutlet var singInButtonOutlet: UIButton!
