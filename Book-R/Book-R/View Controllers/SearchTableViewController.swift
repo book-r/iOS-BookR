@@ -34,15 +34,6 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol{
 		bookcell.book = book
 		bookcell.apiController = apiController
 		
-//		apiController?.fetchImage(with: book!.cover_url, completion: { result in
-//			if let image = try? result.get() {
-//				DispatchQueue.main.async {
-//					bookcell.imageView?.image = image
-//					self.tableView.reloadData()
-//				}
-//			}
-//		})
-		
 		return bookcell
 	}
 	

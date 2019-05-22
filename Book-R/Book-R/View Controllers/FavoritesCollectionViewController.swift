@@ -12,6 +12,12 @@ import UIKit
 
 class FavoritesCollectionViewController: UICollectionViewController, APIControllerProtocol {
 
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		collectionView.reloadData()
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -27,8 +33,9 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCollectionID", for: indexPath)
 		guard let bookcell = cell as? BookCollectionViewCell else { return cell }
 		
-		let book = apiController?.books[indexPath.item]
-		
+		if let book = apiController?.bookSaves[indexPath.item] {
+			bookcell.bookImageView.image = UIImage(data: book.cover_Image)
+		}
 		
 		return bookcell
 	}

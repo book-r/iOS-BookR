@@ -16,11 +16,10 @@ class SearchTableViewCell: UITableViewCell, APIControllerProtocol {
 		
 		titleLabel.text =  book.title
 		isbnLabel.text = book.isbn
+		
 		if let image = UIImage(data: book.cover_Image) {
 			bookImageView.image = image
 		}
-		
-		
 	}
 	
 	@IBOutlet var bookImageView: UIImageView!
