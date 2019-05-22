@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3443" y="1507"/>
+            <point key="canvasLocation" x="3497" y="1507"/>
         </scene>
         <!--Book Detail View Controller-->
         <scene sceneID="sXt-x2-jL8">
@@ -259,7 +259,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oz9-8X-FOT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2558" y="1507"/>
+            <point key="canvasLocation" x="2557" y="1507"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="dpw-Ym-AgT">

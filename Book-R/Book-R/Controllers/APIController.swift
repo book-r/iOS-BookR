@@ -129,8 +129,8 @@ class APIController {
 		}.resume()
 	}
 	
-	func fetchImage(with url: String, completion: @escaping (Result<Data, Error>) -> ()){
-		let imageurl = URL(string: "https://covers.openlibrary.org/b/isbn/9781891389221-M.jpg")!
+	func fetchImage(with isbn: String, completion: @escaping (Result<Data, Error>) -> ()){
+		let imageurl = URL(string: "https://covers.openlibrary.org/b/isbn/\(isbn)-M.jpg")!
 		var request = URLRequest(url: imageurl)
 		request.httpMethod = "GET"
 		
@@ -161,7 +161,7 @@ class APIController {
 extension APIController {
 	private func createBookSave(book: Book) {
 		
-		fetchImage(with: book.cover_url, completion: { result in
+		fetchImage(with: book.isbn, completion: { result in
 			if let dataget = try? result.get() {
 				DispatchQueue.main.async {
 					//let bookSave = BookSave(id: book.id, title: book.title, isbn: book.isbn, cover_Image: dataget, description: book.description)
