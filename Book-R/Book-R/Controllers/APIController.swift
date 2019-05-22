@@ -103,7 +103,9 @@ class APIController {
 	
 	
 	func fetchBookDetail(bookID: Int, completion: @escaping (Result<BookDetail, Error>) -> ()) {
-		URLSession.shared.dataTask(with: baseUrl!) { (data, _, error) in
+		
+		let url = baseUrl?.appendingPathComponent(String(bookID))
+		URLSession.shared.dataTask(with: url!) { (data, _, error) in
 			if let error = error {
 				completion(.failure(error))
 				return
@@ -155,7 +157,7 @@ class APIController {
 	private(set) var bookDetail: [BookDetail] = []
 	private(set) var bookSaves: [BookSave] = []
 	
-	private(set) var User: User?
+	private(set) var loggedInuser: User?
 	
 	private(set) var users: [User] = []
 	
@@ -167,7 +169,6 @@ extension APIController {
 		fetchImage(with: book.isbn, completion: { result in
 			if let dataget = try? result.get() {
 				DispatchQueue.main.async {
-					//let bookSave = BookSave(id: book.id, title: book.title, isbn: book.isbn, cover_Image: dataget, description: book.description)
 					let bookSave = BookSave(title: book.title, isbn: book.isbn, cover_Image: dataget, description: book.description)
 					self.bookSaves.append(bookSave)
 				}
@@ -175,7 +176,13 @@ extension APIController {
 		})
 	}
 	
-	
+	func createUser(username: String, password: String) {
+		
+		let user = User(username: username, password: password)
+		loggedInuser = user
+		users.append(user)
+		
+	}
 	
 	
 	

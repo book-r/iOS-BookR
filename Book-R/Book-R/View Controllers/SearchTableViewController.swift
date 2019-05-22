@@ -17,21 +17,6 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol{
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-//		apiController?.fetchBooks { error in
-//			if let error = error {
-//				print(error)
-//			} else {
-//				DispatchQueue.main.async {
-//					self.tableView.reloadData()
-//					
-//				}
-//				
-//				
-//			}
-//			
-//		}
-		
 		searchBar.delegate = self
 		tableView.reloadData()
 	}
@@ -59,7 +44,7 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol{
 				let indexpath = tableView.indexPath(for: cell) else { return }
 			
 			vc.book = apiController?.bookSaves[indexpath.row]
-			
+			vc.apiController = apiController
 		}
 	}
 	

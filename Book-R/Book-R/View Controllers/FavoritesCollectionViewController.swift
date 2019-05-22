@@ -16,8 +16,11 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
 		super.viewDidAppear(animated)
 		
 		
-		performSegue(withIdentifier: "SignInSegue", sender: self)
-		
+//		if apiController?.loggedInuser == nil {
+//
+//			performSegue(withIdentifier: "SignInSegue", sender: self)
+//		}
+
 		collectionView.reloadData()
 	}
 	
@@ -49,6 +52,7 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
 		if segue.identifier == "SignInSegue" {
 			guard let vc = segue.destination as? SignInSignUpViewController else { return }
 			vc.apiController = apiController
+			
 		}
 	}
 	

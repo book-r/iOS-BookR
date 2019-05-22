@@ -9,7 +9,7 @@
 import UIKit
 
 class StarControl: UIControl {
-	var value = 1
+	var value = 0
 	
 	private let componentDimension: CGFloat = 40.0
 	private let componentCount = 4
@@ -37,7 +37,7 @@ class StarControl: UIControl {
 			performFlare()
 			starLabels.append(label)
 		}
-		starLabels[0].textColor = .red
+//		starLabels[0].textColor = .red
 		starLabels.forEach( { addSubview( $0 )} )
 	}
 	

@@ -35,6 +35,8 @@ class SignInSignUpViewController: UIViewController {
 			return
 		}
 		
+		apiController?.createUser(username: username, password: password)
+		
 		
 		print(username,"-", password)
 		
@@ -61,6 +63,7 @@ class SignInSignUpViewController: UIViewController {
 	@IBOutlet var passwordLabel: UITextField!
 	@IBOutlet var segmentController: UISegmentedControl!
 	
-	var apiController: APIController?
+	var apiController: APIController? {didSet{print("set")}}
+	
 	var loginType: LoginType = .signIn
 }

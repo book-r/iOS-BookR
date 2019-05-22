@@ -136,7 +136,7 @@
                                     <constraint firstAttribute="bottom" secondItem="3JK-6b-Fqa" secondAttribute="bottom" constant="8" id="w2C-uC-Kno"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chW-ko-JBE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chW-ko-JBE">
                                 <rect key="frame" x="20" y="335" width="374" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="N6P-hm-hiW"/>
@@ -161,33 +161,65 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1Y-gb-tYS" customClass="StarControl" customModule="Book_R" customModuleProvider="target">
-                                <rect key="frame" x="100" y="460" width="214" height="55"/>
+                                <rect key="frame" x="100" y="460" width="214" height="47"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="starValueChanged:" destination="7O9-Wb-zgJ" eventType="valueChanged" id="LeF-1m-yzc"/>
                                 </connections>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jUv-cz-GcW">
+                                <rect key="frame" x="20" y="523" width="374" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2LW-bb-0ac">
+                                        <rect key="frame" x="0.0" y="0.0" width="183" height="44"/>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Details"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYi-ui-xsu">
+                                        <rect key="frame" x="191" y="0.0" width="183" height="44"/>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Reviews"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VaJ-T2-Bgv">
+                                <rect key="frame" x="20" y="575" width="374" height="199.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VaJ-T2-Bgv" secondAttribute="height" multiplier="15:8" id="h0S-tf-pwH"/>
+                                </constraints>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tPilot Diary Silicone Honey Straw 6.5um poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="jUv-cz-GcW" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="20" id="0CE-GB-NkD"/>
                             <constraint firstItem="GoD-np-nBv" firstAttribute="trailing" secondItem="oQu-Fx-VK5" secondAttribute="trailing" constant="20" id="63l-Ad-3Fq"/>
                             <constraint firstItem="GoD-np-nBv" firstAttribute="trailing" secondItem="mUA-gp-SC9" secondAttribute="trailing" constant="20" id="9v9-lp-GMV"/>
                             <constraint firstItem="GoD-np-nBv" firstAttribute="trailing" secondItem="chW-ko-JBE" secondAttribute="trailing" constant="20" id="Blt-Ac-0Yw"/>
+                            <constraint firstItem="jUv-cz-GcW" firstAttribute="top" secondItem="i1Y-gb-tYS" secondAttribute="bottom" constant="16" id="C6p-Ry-hDF"/>
+                            <constraint firstItem="VaJ-T2-Bgv" firstAttribute="top" secondItem="jUv-cz-GcW" secondAttribute="bottom" constant="8" id="K4a-Ug-BwI"/>
                             <constraint firstItem="GoD-np-nBv" firstAttribute="trailing" secondItem="i1Y-gb-tYS" secondAttribute="trailing" constant="100" id="NvV-rO-W1B"/>
                             <constraint firstItem="9bh-JU-ZQf" firstAttribute="top" secondItem="GoD-np-nBv" secondAttribute="top" id="O4r-8g-DAe"/>
                             <constraint firstItem="oQu-Fx-VK5" firstAttribute="top" secondItem="9bh-JU-ZQf" secondAttribute="bottom" constant="8" id="QDx-A7-hyE"/>
-                            <constraint firstItem="GoD-np-nBv" firstAttribute="bottom" secondItem="i1Y-gb-tYS" secondAttribute="bottom" constant="347" id="QwR-Xk-e7q"/>
+                            <constraint firstItem="GoD-np-nBv" firstAttribute="trailing" secondItem="VaJ-T2-Bgv" secondAttribute="trailing" constant="20" id="Ryl-uS-SgA"/>
                             <constraint firstItem="0Wn-cR-iIN" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="20" id="SPh-Y9-I91"/>
                             <constraint firstItem="9bh-JU-ZQf" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="20" id="cKx-B9-iNv"/>
                             <constraint firstItem="mUA-gp-SC9" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="20" id="f36-pA-QE5"/>
                             <constraint firstItem="mUA-gp-SC9" firstAttribute="top" secondItem="chW-ko-JBE" secondAttribute="bottom" constant="8" id="fyk-2O-Xxr"/>
+                            <constraint firstItem="GoD-np-nBv" firstAttribute="trailing" secondItem="jUv-cz-GcW" secondAttribute="trailing" constant="20" id="hxg-4i-Tnl"/>
                             <constraint firstItem="oQu-Fx-VK5" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="20" id="io6-sQ-k1c"/>
                             <constraint firstItem="chW-ko-JBE" firstAttribute="top" secondItem="oQu-Fx-VK5" secondAttribute="bottom" constant="8" id="j8c-md-kFS"/>
                             <constraint firstItem="chW-ko-JBE" firstAttribute="top" secondItem="oQu-Fx-VK5" secondAttribute="bottom" constant="8" id="jl8-ZK-qgu"/>
                             <constraint firstItem="i1Y-gb-tYS" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="100" id="mfv-cx-YlV"/>
                             <constraint firstItem="i1Y-gb-tYS" firstAttribute="top" secondItem="0Wn-cR-iIN" secondAttribute="bottom" constant="8" id="mx0-MP-bhe"/>
+                            <constraint firstItem="GoD-np-nBv" firstAttribute="bottom" secondItem="jUv-cz-GcW" secondAttribute="bottom" constant="295" id="n9q-0g-fIh"/>
                             <constraint firstItem="chW-ko-JBE" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="20" id="nHq-Wo-Hxn"/>
                             <constraint firstItem="GoD-np-nBv" firstAttribute="trailing" secondItem="0Wn-cR-iIN" secondAttribute="trailing" constant="20" id="poO-oW-Thx"/>
+                            <constraint firstItem="VaJ-T2-Bgv" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="20" id="qdk-RH-KX4"/>
+                            <constraint firstItem="jUv-cz-GcW" firstAttribute="top" secondItem="pDN-gP-OuC" secondAttribute="top" constant="523" id="ug6-na-ufF"/>
                             <constraint firstItem="0Wn-cR-iIN" firstAttribute="top" secondItem="mUA-gp-SC9" secondAttribute="bottom" constant="8" id="yW1-fg-2S3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GoD-np-nBv"/>
