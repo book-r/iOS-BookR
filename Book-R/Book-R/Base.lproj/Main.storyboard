@@ -151,8 +151,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate this Book" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wn-cR-iIN">
+                                <rect key="frame" x="20" y="435" width="374" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1Y-gb-tYS" customClass="StarControl" customModule="Book_R" customModuleProvider="target">
-                                <rect key="frame" x="100" y="443" width="214" height="51"/>
+                                <rect key="frame" x="100" y="460" width="214" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="starValueChanged:" destination="7O9-Wb-zgJ" eventType="valueChanged" id="LeF-1m-yzc"/>
@@ -164,25 +170,32 @@
                             <constraint firstItem="GoD-np-nBv" firstAttribute="trailing" secondItem="oQu-Fx-VK5" secondAttribute="trailing" constant="20" id="63l-Ad-3Fq"/>
                             <constraint firstItem="GoD-np-nBv" firstAttribute="trailing" secondItem="mUA-gp-SC9" secondAttribute="trailing" constant="20" id="9v9-lp-GMV"/>
                             <constraint firstItem="GoD-np-nBv" firstAttribute="trailing" secondItem="chW-ko-JBE" secondAttribute="trailing" constant="20" id="Blt-Ac-0Yw"/>
+                            <constraint firstItem="GoD-np-nBv" firstAttribute="trailing" secondItem="i1Y-gb-tYS" secondAttribute="trailing" constant="100" id="NvV-rO-W1B"/>
                             <constraint firstItem="9bh-JU-ZQf" firstAttribute="top" secondItem="GoD-np-nBv" secondAttribute="top" id="O4r-8g-DAe"/>
                             <constraint firstItem="oQu-Fx-VK5" firstAttribute="top" secondItem="9bh-JU-ZQf" secondAttribute="bottom" constant="8" id="QDx-A7-hyE"/>
+                            <constraint firstItem="GoD-np-nBv" firstAttribute="bottom" secondItem="i1Y-gb-tYS" secondAttribute="bottom" constant="347" id="QwR-Xk-e7q"/>
+                            <constraint firstItem="0Wn-cR-iIN" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="20" id="SPh-Y9-I91"/>
                             <constraint firstItem="9bh-JU-ZQf" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="20" id="cKx-B9-iNv"/>
                             <constraint firstItem="mUA-gp-SC9" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="20" id="f36-pA-QE5"/>
-                            <constraint firstItem="i1Y-gb-tYS" firstAttribute="top" secondItem="mUA-gp-SC9" secondAttribute="bottom" constant="16" id="fkU-AH-CVN"/>
                             <constraint firstItem="mUA-gp-SC9" firstAttribute="top" secondItem="chW-ko-JBE" secondAttribute="bottom" constant="8" id="fyk-2O-Xxr"/>
                             <constraint firstItem="oQu-Fx-VK5" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="20" id="io6-sQ-k1c"/>
                             <constraint firstItem="chW-ko-JBE" firstAttribute="top" secondItem="oQu-Fx-VK5" secondAttribute="bottom" constant="8" id="j8c-md-kFS"/>
                             <constraint firstItem="chW-ko-JBE" firstAttribute="top" secondItem="oQu-Fx-VK5" secondAttribute="bottom" constant="8" id="jl8-ZK-qgu"/>
+                            <constraint firstItem="i1Y-gb-tYS" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="100" id="mfv-cx-YlV"/>
+                            <constraint firstItem="i1Y-gb-tYS" firstAttribute="top" secondItem="0Wn-cR-iIN" secondAttribute="bottom" constant="8" id="mx0-MP-bhe"/>
                             <constraint firstItem="chW-ko-JBE" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="20" id="nHq-Wo-Hxn"/>
-                            <constraint firstItem="i1Y-gb-tYS" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="100" id="p9J-Bt-E7T"/>
-                            <constraint firstItem="GoD-np-nBv" firstAttribute="bottom" secondItem="i1Y-gb-tYS" secondAttribute="bottom" constant="368" id="uSE-2n-ovI"/>
-                            <constraint firstItem="GoD-np-nBv" firstAttribute="trailing" secondItem="i1Y-gb-tYS" secondAttribute="trailing" constant="100" id="z3k-kC-nAT"/>
+                            <constraint firstItem="GoD-np-nBv" firstAttribute="trailing" secondItem="0Wn-cR-iIN" secondAttribute="trailing" constant="20" id="poO-oW-Thx"/>
+                            <constraint firstItem="0Wn-cR-iIN" firstAttribute="top" secondItem="mUA-gp-SC9" secondAttribute="bottom" constant="8" id="yW1-fg-2S3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GoD-np-nBv"/>
                     </view>
                     <navigationItem key="navigationItem" id="w9n-g7-44r"/>
                     <connections>
+                        <outlet property="bookImageView" destination="3JK-6b-Fqa" id="kw3-ce-hFh"/>
+                        <outlet property="byLabel" destination="mUA-gp-SC9" id="rKL-o2-cFg"/>
+                        <outlet property="rateThisBookLabel" destination="0Wn-cR-iIN" id="J83-cj-YdU"/>
                         <outlet property="starController" destination="i1Y-gb-tYS" id="bTa-BH-kxU"/>
+                        <outlet property="titleLabel" destination="chW-ko-JBE" id="jaP-gQ-evy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="slh-w9-i0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -248,7 +261,7 @@
                                     <outlet property="bookImageView" destination="MT3-ej-Y5o" id="znZ-sf-7nS"/>
                                     <outlet property="isbnLabel" destination="RVQ-08-CYk" id="xqY-o6-tvS"/>
                                     <outlet property="titleLabel" destination="46z-7h-o1r" id="M26-oV-i71"/>
-                                    <segue destination="7O9-Wb-zgJ" kind="showDetail" id="Qx7-s5-dXV"/>
+                                    <segue destination="7O9-Wb-zgJ" kind="showDetail" identifier="bookDetailSegue" id="Qx7-s5-dXV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -329,12 +342,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settings" id="nBW-Ni-eBL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="settingsID" textLabel="FVk-Rt-sMh" style="IBUITableViewCellStyleDefault" id="nBW-Ni-eBL">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nBW-Ni-eBL" id="tAr-WC-UpZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FVk-Rt-sMh">
+                                            <rect key="frame" x="20" y="0.0" width="350" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
