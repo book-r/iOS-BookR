@@ -26,7 +26,7 @@ class StarControl: UIControl {
 	
 	
 	private func setup() {
-		for i in 0...5 {
+		for i in 0...4 {
 			let label = UILabel()
 			let frame =  CGRect(x: 8.0 + componentDimension * CGFloat(i), y: 0, width: componentDimension, height: componentDimension)
 			label.frame = frame
@@ -75,6 +75,7 @@ class StarControl: UIControl {
 		} else {
 			updateValue(at: touch)
 		}
+		sendActions(for: [.valueChanged])
 		
 	}
 	
@@ -89,7 +90,7 @@ class StarControl: UIControl {
 				value = label.tag
 				isRated(value: value)
 				label.performFlare()
-				sendActions(for: [.valueChanged])
+//				sendActions(for: [.valueChanged])
 			}
 		}
 		

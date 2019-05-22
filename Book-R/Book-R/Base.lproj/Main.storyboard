@@ -152,7 +152,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1Y-gb-tYS" customClass="StarControl" customModule="Book_R" customModuleProvider="target">
-                                <rect key="frame" x="20" y="443" width="374" height="51"/>
+                                <rect key="frame" x="100" y="443" width="214" height="51"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="starValueChanged:" destination="7O9-Wb-zgJ" eventType="valueChanged" id="LeF-1m-yzc"/>
@@ -174,13 +174,16 @@
                             <constraint firstItem="chW-ko-JBE" firstAttribute="top" secondItem="oQu-Fx-VK5" secondAttribute="bottom" constant="8" id="j8c-md-kFS"/>
                             <constraint firstItem="chW-ko-JBE" firstAttribute="top" secondItem="oQu-Fx-VK5" secondAttribute="bottom" constant="8" id="jl8-ZK-qgu"/>
                             <constraint firstItem="chW-ko-JBE" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="20" id="nHq-Wo-Hxn"/>
-                            <constraint firstItem="i1Y-gb-tYS" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="20" id="p9J-Bt-E7T"/>
+                            <constraint firstItem="i1Y-gb-tYS" firstAttribute="leading" secondItem="GoD-np-nBv" secondAttribute="leading" constant="100" id="p9J-Bt-E7T"/>
                             <constraint firstItem="GoD-np-nBv" firstAttribute="bottom" secondItem="i1Y-gb-tYS" secondAttribute="bottom" constant="368" id="uSE-2n-ovI"/>
-                            <constraint firstItem="GoD-np-nBv" firstAttribute="trailing" secondItem="i1Y-gb-tYS" secondAttribute="trailing" constant="20" id="z3k-kC-nAT"/>
+                            <constraint firstItem="GoD-np-nBv" firstAttribute="trailing" secondItem="i1Y-gb-tYS" secondAttribute="trailing" constant="100" id="z3k-kC-nAT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GoD-np-nBv"/>
                     </view>
                     <navigationItem key="navigationItem" id="w9n-g7-44r"/>
+                    <connections>
+                        <outlet property="starController" destination="i1Y-gb-tYS" id="bTa-BH-kxU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="slh-w9-i0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
