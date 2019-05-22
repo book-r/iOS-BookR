@@ -23,8 +23,8 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		
+		collectionView.reloadData()
+
 	}
 	
 	

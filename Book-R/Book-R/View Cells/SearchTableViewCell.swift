@@ -15,7 +15,7 @@ class SearchTableViewCell: UITableViewCell, APIControllerProtocol {
 		guard let book = book else { return }
 		
 		titleLabel.text =  book.title
-		isbnLabel.text = book.isbn
+		isbnLabel.text = "isbn: " + book.isbn
 		
 		if let image = UIImage(data: book.cover_Image) {
 			bookImageView.image = image
