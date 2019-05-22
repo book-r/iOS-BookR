@@ -15,7 +15,12 @@ class SearchTableViewCell: UITableViewCell, APIControllerProtocol {
 		guard let book = book else { return }
 		
 		titleLabel.text =  book.title
-		isbnLabel.text = book.isbn		
+		isbnLabel.text = book.isbn
+		if let image = UIImage(data: book.cover_Image) {
+			bookImageView.image = image
+		}
+		
+		
 	}
 	
 	@IBOutlet var bookImageView: UIImageView!
@@ -23,7 +28,7 @@ class SearchTableViewCell: UITableViewCell, APIControllerProtocol {
 	@IBOutlet var isbnLabel: UILabel!
 	var apiController: APIController?
 	
-	var book: Book? {
+	var book: BookSave? {
 		didSet { setupViews()}
 	}
 }

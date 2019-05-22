@@ -86,6 +86,11 @@ class APIController {
 			do {
 				let booksDecoded = try JSONDecoder().decode([Book].self, from: data)
 				print(booksDecoded)
+				
+				for book in booksDecoded {
+					self.createBookSave(book: book)
+				}
+				
 				self.books = booksDecoded
 				completion(nil)
 			} catch {
@@ -113,6 +118,9 @@ class APIController {
 				let bookDecoded = try JSONDecoder().decode(BookDetail.self, from: data)
 				print(bookDecoded)
 				self.bookDetail.append(bookDecoded)
+				
+				
+				
 				completion(.success(bookDecoded))
 			} catch {
 				completion(.failure(error))
@@ -121,8 +129,8 @@ class APIController {
 		}.resume()
 	}
 	
-	func fetchImage(with url: String, completion: @escaping (Result<UIImage, Error>) -> ()){
-		let imageurl = URL(string: url)!
+	func fetchImage(with url: String, completion: @escaping (Result<Data, Error>) -> ()){
+		let imageurl = URL(string: "https://covers.openlibrary.org/b/isbn/9781891389221-M.jpg")!
 		var request = URLRequest(url: imageurl)
 		request.httpMethod = "GET"
 		
@@ -132,22 +140,40 @@ class APIController {
 				return
 			}
 			
-			guard 	let data = data,
-				let image = UIImage(data: data) else {
-					print("Error Converting data to image.")
-					completion(.failure(NSError()))
-					return
+			guard let data = data else {
+				print("Error Converting data to image.")
+				completion(.failure(NSError()))
+				return
 			}
 			
-			completion(.success(image))
-			}.resume()
+			completion(.success(data))
+		}.resume()
 	}
 	
 	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books/")
 	private(set) var books: [Book] = []
 	private(set) var bookDetail: [BookDetail] = []
 	
+	private(set) var bookSaves: [BookSave] = []
+	
 }
 
+extension APIController {
+	private func createBookSave(book: Book) {
+		
+		fetchImage(with: book.cover_url, completion: { result in
+			if let dataget = try? result.get() {
+				DispatchQueue.main.async {
+					let bookSave = BookSave(id: book.id, title: book.title, isbn: book.isbn, cover_Image: dataget, description: book.description)
+					
+					self.bookSaves.append(bookSave)
+				}
+			}
+		})
+		
+		
+		
+	}
+}
 
 

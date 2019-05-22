@@ -12,7 +12,7 @@ struct Book: Codable, Equatable {
 	let id: Int
 	let title: String
 	let isbn: String
-	var cover_url: String
+	let cover_url: String
 	let description: String
 	let edition: String
 	let year: Int

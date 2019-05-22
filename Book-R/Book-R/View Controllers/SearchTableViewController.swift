@@ -30,18 +30,18 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol{
 		let cell = tableView.dequeueReusableCell(withIdentifier: "bookSerachCell", for: indexPath)
 		guard let bookcell = cell as? SearchTableViewCell else { return cell }
 		
-		let book = apiController?.books[indexPath.row]
+		let book = apiController?.bookSaves[indexPath.row]
 		bookcell.book = book
 		bookcell.apiController = apiController
 		
-		apiController?.fetchImage(with: book!.cover_url, completion: { result in
-			if let image = try? result.get() {
-				DispatchQueue.main.async {
-					bookcell.imageView?.image = image
-					self.tableView.reloadData()
-				}
-			}
-		})
+//		apiController?.fetchImage(with: book!.cover_url, completion: { result in
+//			if let image = try? result.get() {
+//				DispatchQueue.main.async {
+//					bookcell.imageView?.image = image
+//					self.tableView.reloadData()
+//				}
+//			}
+//		})
 		
 		return bookcell
 	}

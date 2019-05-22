@@ -25,8 +25,12 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCollectionID", for: indexPath)
+		guard let bookcell = cell as? BookCollectionViewCell else { return cell }
 		
-		return cell
+		let book = apiController?.books[indexPath.item]
+		
+		
+		return bookcell
 	}
 	
 	var apiController: APIController?

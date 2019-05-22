@@ -9,5 +9,10 @@
 import UIKit
 
 class BookCollectionViewCell: UICollectionViewCell {
-    
+	
+	
+	
+	
+	@IBOutlet var bookImageView: UIImageView!
+	
 }
