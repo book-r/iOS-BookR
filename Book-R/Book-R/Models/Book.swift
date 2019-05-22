@@ -9,7 +9,7 @@
 import Foundation
 
 struct Book: Codable, Equatable {
-	let id: Int
+//	let id: Int
 	let title: String
 	let isbn: String
 	let cover_url: String
@@ -17,5 +17,5 @@ struct Book: Codable, Equatable {
 	let edition: String
 	let year: Int
 	let publisher_id: Int
-	let publisher: String
+//	let publisher: String
 }

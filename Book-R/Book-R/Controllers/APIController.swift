@@ -153,8 +153,11 @@ class APIController {
 	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books/")
 	private(set) var books: [Book] = []
 	private(set) var bookDetail: [BookDetail] = []
-	
 	private(set) var bookSaves: [BookSave] = []
+	
+	private(set) var User: User?
+	
+	private(set) var users: [User] = []
 	
 }
 
@@ -165,15 +168,17 @@ extension APIController {
 			if let dataget = try? result.get() {
 				DispatchQueue.main.async {
 					//let bookSave = BookSave(id: book.id, title: book.title, isbn: book.isbn, cover_Image: dataget, description: book.description)
-					let bookSave = BookSave(loggedIn: false, id: book.id, title: book.title, isbn: book.isbn, cover_Image: dataget, description: book.description)
+					let bookSave = BookSave(title: book.title, isbn: book.isbn, cover_Image: dataget, description: book.description)
 					self.bookSaves.append(bookSave)
 				}
 			}
 		})
-		
-		
-		
 	}
+	
+	
+	
+	
+	
 }
 
 

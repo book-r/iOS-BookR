@@ -16,15 +16,15 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
 		super.viewDidAppear(animated)
 		
 		
-		collectionView.reloadData()
-
+		performSegue(withIdentifier: "SignInSegue", sender: self)
 		
+		collectionView.reloadData()
 	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		collectionView.reloadData()
-
+		
 	}
 	
 	
@@ -42,6 +42,17 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
 		
 		return bookcell
 	}
+	
+	
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "SignInSegue" {
+			guard let vc = segue.destination as? SignInSignUpViewController else { return }
+			vc.apiController = apiController
+		}
+	}
+	
+	
 	
 	var apiController: APIController?
 	@IBOutlet var imageView: UIImageView!

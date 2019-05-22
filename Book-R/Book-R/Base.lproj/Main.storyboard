@@ -30,6 +30,9 @@
                                             <segment title="Sign In"/>
                                             <segment title="Sign Up"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="segmentControlTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qcw-qo-5xG"/>
+                                        </connections>
                                     </segmentedControl>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5eh-bT-swk">
                                         <rect key="frame" x="0.0" y="28" width="382" height="30"/>
@@ -324,6 +327,7 @@
                             <outlet property="delegate" destination="i2O-o9-RTw" id="Wok-0K-dVl"/>
                         </connections>
                     </collectionView>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="03l-xw-ybt"/>
                     <navigationItem key="navigationItem" id="JSq-1q-aiF"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="modal" identifier="SignInSegue" id="o9g-Zs-Waz"/>
@@ -385,6 +389,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="i2O-o9-RTw" kind="relationship" relationship="viewControllers" id="Pj0-RT-VhA"/>
                         <segue destination="ZKI-rJ-bS6" kind="relationship" relationship="viewControllers" id="QXa-dk-aTs"/>
                         <segue destination="Njj-V0-mgH" kind="relationship" relationship="viewControllers" id="ZyN-od-ghI"/>
                     </connections>
