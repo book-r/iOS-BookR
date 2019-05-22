@@ -19,23 +19,30 @@ class SignInSignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-
-//		performSegue(withIdentifier: "notLoggedINSegue", sender: nil)
     }
 	
 	@IBAction func signInButton(_ sender: Any) {
 		guard let username = usernameLabel.text,
 			let password = passwordLabel.text, !username.isEmpty , !password.isEmpty else {
-				
-			//alert
-			let alertController = UIAlertController(title: "Error", message: "Invalid password and/or username", preferredStyle: .alert)
+			//if error
+			let alertController = UIAlertController(title: "Error", message: "Invalid password and/or username.\nPlease sign up.", preferredStyle: .alert)
 			alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-				
 			present(alertController, animated: true)
 			return
 		}
 		
-		apiController?.createUser(username: username, password: password)
+		//apiController?.createUser(username: username, password: password)
+		let user = User(username: username, password: password)
+		
+		if loginType == .signUp {
+			apiController?.signUp(with: user, completion: { error in
+				if let error = error {
+					print(error)
+				}
+			})
+			
+		}
+		
 		
 		
 		print(username,"-", password)

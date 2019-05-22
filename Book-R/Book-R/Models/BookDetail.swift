@@ -21,12 +21,12 @@ struct BookDetail: Codable, Equatable {
 	let average: Double
 	
 	let authors: [Author]
-//	let reviews: [Review]
+	let reviews: [Review]
 }
 
 struct Review: Codable, Equatable {
 	let id: Int
-	let rating: Int
+	let rating: Double
 	let comment: String
 	let book_id: Int
 	let user_id: Int

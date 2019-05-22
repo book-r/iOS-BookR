@@ -10,13 +10,80 @@ import UIKit
 
 enum HTTPMethod: String {
 	case get = "GET"
-	case post = "Post"
+	case post = "POST"
 }
 
+//henry - test
 
 
 class APIController {
-	func signUn(with user: User, completion: @escaping (Error?) -> ()) {
+	
+	init () {
+		fetchBooks { (error) in
+			if let error = error {
+				print(error)
+			}
+		}
+	}
+	
+	func signUp(with user: User, completion: @escaping (Error?) -> ()) {
+		//"https://lambda-bookr.herokuapp.com/api/auth/register"
+		let signUpUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/auth/register")! //.appendingPathComponent("users/signup")
+		
+		var request = URLRequest(url: signUpUrl)
+		request.httpMethod = "POST"
+		request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+		
+		do{
+			let encoder = JSONEncoder()
+			let encodedData = try encoder.encode(user)
+			
+			print(encodedData)
+			request.httpBody = 	encodedData
+		} catch {
+			print("Error encoding user: ",error)
+			completion(error)
+		}
+		print(request)
+		
+		URLSession.shared.dataTask(with: request) { data, response, error in
+			if let response = response as? HTTPURLResponse,
+				 response.statusCode != 201 {
+//				print(response)
+				completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+				print("response error")
+				return
+			}
+			
+			if let error = error {
+				completion(error)
+				print(" error error")
+				return
+			}
+			
+			guard let data = data else {
+				print("error with data")
+				completion(nil)
+				return
+			}
+			
+			print(data)
+			
+			do{
+				let decoder = JSONDecoder()
+				let decodedData = try decoder.decode(SuccessResponse.self, from: data)
+//				print(decodedData)
+				
+				self.token = decodedData.token
+				print(decodedData.token)
+				completion(nil)
+			} catch {
+				print("error decoding token")
+				completion(error)
+			}
+			
+		}.resume()
+		
 		
 	}
 	
@@ -85,7 +152,7 @@ class APIController {
 			
 			do {
 				let booksDecoded = try JSONDecoder().decode([Book].self, from: data)
-				print(booksDecoded)
+//				print(booksDecoded)
 				
 				for book in booksDecoded {
 					self.createBookSave(book: book)
@@ -100,7 +167,6 @@ class APIController {
 			
 			}.resume()
 	}
-	
 	
 	func fetchBookDetail(bookID: Int, completion: @escaping (Result<BookDetail, Error>) -> ()) {
 		
@@ -118,7 +184,7 @@ class APIController {
 			
 			do {
 				let bookDecoded = try JSONDecoder().decode(BookDetail.self, from: data)
-				print(bookDecoded)
+//				print(bookDecoded)
 				self.bookDetail.append(bookDecoded)
 				
 				
@@ -157,9 +223,13 @@ class APIController {
 	private(set) var bookDetail: [BookDetail] = []
 	private(set) var bookSaves: [BookSave] = []
 	
-	private(set) var loggedInuser: User?
 	
+	var token: String?
+	
+	
+	private(set) var loggedInuser: User?
 	private(set) var users: [User] = []
+	
 	
 }
 
@@ -168,10 +238,10 @@ extension APIController {
 		
 		fetchImage(with: book.isbn, completion: { result in
 			if let dataget = try? result.get() {
-				DispatchQueue.main.async {
+//				DispatchQueue.main.async {
 					let bookSave = BookSave(title: book.title, isbn: book.isbn, cover_Image: dataget, description: book.description)
 					self.bookSaves.append(bookSave)
-				}
+//				}
 			}
 		})
 	}
