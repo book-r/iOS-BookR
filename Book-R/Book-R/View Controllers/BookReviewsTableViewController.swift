@@ -18,6 +18,33 @@ class BookReviewsTableViewController: UITableViewController {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		tableView.reloadData()
+		guard let book_id = book_id else { return }
+		
+		apiController?.fetchBookDetail(bookID: book_id , completion: { result in
+			if let bookDetail = try? result.get() {
+				DispatchQueue.main.async {
+					self.reviews = bookDetail.reviews
+					self.tableView.reloadData()
+					
+				}
+				
+			} else {
+				print("error getting book Detail")
+			}
+		})
+		
+//		apiController?.fetchBookReviewDetail(bookID: book_id, completion: { result in
+//			if let result = try? result.get() {
+//				DispatchQueue.main.async {
+//					self.reviews = result
+//					print(result)
+//					self.tableView.reloadData()
+//				}
+//
+//			} else {
+//				print("error fetching reviews: \(result)")
+//			}
+//		})
 	}
 
 	@IBAction func doneButton(_ sender: Any) {
@@ -52,5 +79,6 @@ class BookReviewsTableViewController: UITableViewController {
 	
 	var apiController: APIController?
 	var reviews: [Review]?
+	
 	var book_id: Int?
 }

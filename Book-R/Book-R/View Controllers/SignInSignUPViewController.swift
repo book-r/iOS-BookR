@@ -40,37 +40,28 @@ class SignInSignUpViewController: UIViewController {
 			return
 		}
 		
-		//apiController?.createUser(username: username, password: password)
+		
 		let user = User(username: username, password: password)
 		
 		if loginType == .signUp {
 			apiController?.signUp(with: user, completion: { error in
 				if let error = error {
 					self.logInErrorAlert(error)
-				} else {
-
-					self.apiController?.setFavorites(user: user)
 				}
 			})
 		} else {
-		
 			apiController?.signIn(with: user, completion: { error in
 				if let error = error {
 					self.logInErrorAlert(error)
-				} else {
-
-					self.apiController?.setFavorites(user: user)
 				}
-	
 			})
 			
 		}
 		
-		dismiss(animated: true, completion: nil)
+		self.dismiss(animated: true, completion: nil)
 		print(username,"-", password)
-		
-	
 	}
+	
 	@IBAction func segmentControlTapped(_ sender: UISegmentedControl) {
 		
 		if sender.selectedSegmentIndex == 0 {

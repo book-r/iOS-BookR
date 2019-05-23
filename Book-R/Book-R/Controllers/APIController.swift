@@ -197,8 +197,8 @@ class APIController {
 			}.resume()
 	}
 	
-	func fetchBookReviewDetail(bookID: Int, completion: @escaping (Result<[Review], Error>) -> ()) {
-		let url = URL(string: "https://lambda-bookr.herokuapp.com/api/reviews/\(String(bookID))")
+	func fetchBookReviewDetail(bookID: Int, completion: @escaping (Result<[SendBookReview], Error>) -> ()) {
+		let url = URL(string: "https://lambda-bookr.herokuapp.com/api/books/2/\(String(bookID))/reviews")
 		
 		URLSession.shared.dataTask(with: url!) { (data, _, error) in
 			if let error = error {
@@ -212,7 +212,7 @@ class APIController {
 			}
 			
 			do {
-				let reviewsDecoded = try JSONDecoder().decode([Review].self, from: data)
+				let reviewsDecoded = try JSONDecoder().decode([SendBookReview].self, from: data)
 	
 				completion(.success(reviewsDecoded))
 			} catch {
@@ -272,7 +272,6 @@ class APIController {
 			}.resume()
 		
 	}
-	
 	
 	init () {
 		fetchBooks { (error) in

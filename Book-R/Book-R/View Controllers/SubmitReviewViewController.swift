@@ -27,7 +27,7 @@ class SubmitReviewViewController: UIViewController {
 	}
 	
 	@IBAction func submitButton(_ sender: Any) {
-		print("submit")
+		
 		guard let reviewText = reviewTextView.text,
 			let book_id = book_id,
 			let token = apiController?.token else {
@@ -40,15 +40,26 @@ class SubmitReviewViewController: UIViewController {
 				
 				return
 		}
+		
+		if value == 0 || reviewText.isEmpty {
+			let ac = UIAlertController(title: "Error", message: "Please sig in or sign up!", preferredStyle: .alert)
+			ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+			present(ac, animated: true)
+		}
 	
 		let bookReview = BookReview(rating: Double(value), comment: reviewText, book_id: book_id, user_id: token.id)
 		
 		apiController?.submitReview(with: token, review: bookReview, completion: { error in
 			if let error = error {
 				print("error submiting review: ",error)
-				
-				
+//				DispatchQueue.main.async {
+//					let ac = UIAlertController(title: "Error", message: "Submiting Review failed. You already revied this book. Or please try again later.", preferredStyle: .alert)
+//					ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//					self.present(ac, animated: true)
+//				}
+
 			} else {
+				
 				self.dismiss(animated: true, completion: nil)
 			}
 		})

@@ -26,5 +26,14 @@ struct BookReview: Codable {
 	let comment: String
 	let book_id: Int
 	let user_id: Int
-	
+}
+
+struct SendBookReview: Codable {
+	let id: Int
+	let title: String
+	let username: String
+	let book_id: Int
+	let user_id: Int
+	let rating: Double
+	let comment: String
 }
