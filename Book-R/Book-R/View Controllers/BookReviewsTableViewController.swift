@@ -21,6 +21,20 @@ class BookReviewsTableViewController: UITableViewController {
 	}
 	
 	
-	var apiController: APIController?
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return reviews?.count ?? 0
+	}
 	
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCellID", for: indexPath)
+		guard let reviewCell = cell as? ReviewTableViewCell else { return cell }
+		
+		
+		reviewCell.review = reviews![indexPath.row]
+		return reviewCell
+	}
+	
+	
+	var apiController: APIController?
+	var reviews: [Review]?
 }

@@ -14,8 +14,6 @@ enum LoginType {
 	case signIn
 }
 
-//400Thee??
-
 class SignInSignUpViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -46,7 +44,9 @@ class SignInSignUpViewController: UIViewController {
 		} else {
 		
 			apiController?.signIn(with: user, completion: { error in
-				
+				if let error = error {
+					print("Error Signig in \(error)")
+				}
 			})
 			
 		}

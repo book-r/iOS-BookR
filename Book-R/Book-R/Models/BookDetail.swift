@@ -29,8 +29,8 @@ struct Review: Codable, Equatable {
 	let rating: Double
 	let comment: String
 	let book_id: Int
-	let user_id: Int
 	let title: String
+	let user_id: Int
 	let username: String
 }
 

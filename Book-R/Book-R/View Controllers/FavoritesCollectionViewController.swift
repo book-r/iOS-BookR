@@ -37,7 +37,7 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCollectionID", for: indexPath)
 		guard let bookcell = cell as? BookCollectionViewCell else { return cell }
-		
+
 		if let book = apiController?.bookSaves[indexPath.item] {
 			bookcell.bookImageView.image = UIImage(data: book.cover_Image)
 		} else {
