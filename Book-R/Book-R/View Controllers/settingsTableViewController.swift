@@ -21,7 +21,7 @@ class settingsTableViewController: UITableViewController, APIControllerProtocol 
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "settingsID", for: indexPath)
-		cell.textLabel?.text = "Sign IN"
+		cell.textLabel?.text = "log out"
 		return cell
 	}
 	

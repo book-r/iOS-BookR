@@ -20,6 +20,8 @@
 		E85D35AC229507660027BD42 /* StarControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D35AB229507660027BD42 /* StarControl.swift */; };
 		E85D35AF229508890027BD42 /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D35AE229508890027BD42 /* UIView+ext.swift */; };
 		E85D35B12295DB450027BD42 /* SuccessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D35B02295DB450027BD42 /* SuccessResponse.swift */; };
+		E85D35B322961AB80027BD42 /* BookDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D35B222961AB80027BD42 /* BookDetailTableViewController.swift */; };
+		E85D35B522961E610027BD42 /* BookReviewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D35B422961E610027BD42 /* BookReviewsTableViewController.swift */; };
 		E8F08E42229311DC0083B700 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F08E41229311DC0083B700 /* AppDelegate.swift */; };
 		E8F08E47229311DC0083B700 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8F08E45229311DC0083B700 /* Main.storyboard */; };
 		E8F08E49229311DD0083B700 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8F08E48229311DD0083B700 /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 		E85D35AB229507660027BD42 /* StarControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarControl.swift; sourceTree = "<group>"; };
 		E85D35AE229508890027BD42 /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
 		E85D35B02295DB450027BD42 /* SuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessResponse.swift; sourceTree = "<group>"; };
+		E85D35B222961AB80027BD42 /* BookDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailTableViewController.swift; sourceTree = "<group>"; };
+		E85D35B422961E610027BD42 /* BookReviewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookReviewsTableViewController.swift; sourceTree = "<group>"; };
 		E8F08E3E229311DC0083B700 /* Book-R.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book-R.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F08E41229311DC0083B700 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8F08E46229311DC0083B700 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 				E8150298229453660015329A /* SearchTableViewController.swift */,
 				E815029A229453910015329A /* settingsTableViewController.swift */,
 				E81502AB2294E7EC0015329A /* BookDetailViewController.swift */,
+				E85D35B222961AB80027BD42 /* BookDetailTableViewController.swift */,
+				E85D35B422961E610027BD42 /* BookReviewsTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -233,10 +239,12 @@
 				E8F08E55229313DE0083B700 /* SignInSignUPViewController.swift in Sources */,
 				E8150299229453660015329A /* SearchTableViewController.swift in Sources */,
 				E85D35AC229507660027BD42 /* StarControl.swift in Sources */,
+				E85D35B322961AB80027BD42 /* BookDetailTableViewController.swift in Sources */,
 				E815029F229454E80015329A /* Book.swift in Sources */,
 				E81502A52294BA1C0015329A /* BookCollectionViewCell.swift in Sources */,
 				E8F08E5722931ACC0083B700 /* APIController.swift in Sources */,
 				E81502A322948A7C0015329A /* BookDetail.swift in Sources */,
+				E85D35B522961E610027BD42 /* BookReviewsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,7 +397,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hvillasa.Book-R";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lambdaschool.bookr-com.lambdaschool.Book-R";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -407,7 +415,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hvillasa.Book-R";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lambdaschool.bookr-com.lambdaschool.Book-R";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

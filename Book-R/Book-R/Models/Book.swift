@@ -17,5 +17,4 @@ struct Book: Codable, Equatable {
 	let edition: String
 	let year: Int
 	let publisher_id: Int
-//	let publisher: String
 }

@@ -14,7 +14,7 @@ enum HTTPMethod: String {
 }
 
 //henry - test
-
+//Hector1234 - 1234
 
 class APIController {
 	
@@ -27,8 +27,7 @@ class APIController {
 	}
 	
 	func signUp(with user: User, completion: @escaping (Error?) -> ()) {
-		//"https://lambda-bookr.herokuapp.com/api/auth/register"
-		let signUpUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/auth/register")! //.appendingPathComponent("users/signup")
+		let signUpUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/auth/register")!
 		
 		var request = URLRequest(url: signUpUrl)
 		request.httpMethod = "POST"
@@ -49,7 +48,6 @@ class APIController {
 		URLSession.shared.dataTask(with: request) { data, response, error in
 			if let response = response as? HTTPURLResponse,
 				 response.statusCode != 201 {
-//				print(response)
 				completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
 				print("response error")
 				return
@@ -67,12 +65,9 @@ class APIController {
 				return
 			}
 			
-			print(data)
-			
 			do{
 				let decoder = JSONDecoder()
 				let decodedData = try decoder.decode(SuccessResponse.self, from: data)
-//				print(decodedData)
 				
 				self.token = decodedData.token
 				print(decodedData.token)
@@ -88,14 +83,12 @@ class APIController {
 	}
 	
 	func signIn(with user: User, completion: @escaping (Error?) -> ()) {
-		// CHECK DOCS
-		let url = baseUrl?.appendingPathComponent("users/login")
+		let url = URL(string: "https://lambda-bookr.herokuapp.com/api/auth/login")!
 		
-		var request = URLRequest(url: url!)
+		var request = URLRequest(url: url)
 		request.httpMethod = HTTPMethod.post.rawValue
-		request.setValue("applicaition/json", forHTTPHeaderField: "Content-Type")
+		request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 		
-		//encode to json
 		do {
 			let encoder = JSONEncoder()
 			let jsonData = try encoder.encode(user)
@@ -108,9 +101,9 @@ class APIController {
 		// make urlsession
 		
 		URLSession.shared.dataTask(with: request) { data, response, error in
-			if let response = response as? HTTPURLResponse,
-				response.statusCode != 200 {
-				
+			if let response = response as? HTTPURLResponse{
+//				response.statusCode != 200 {
+				print(response.statusCode)
 				let nsError = NSError(domain: "", code: response.statusCode, userInfo: nil)
 				completion(nsError)
 			}
@@ -119,19 +112,23 @@ class APIController {
 				completion(error)
 			}
 			
-//			guard let data = data else {
-//				completion(error)
-//				return
-//			}
-//
-//			do {
-//				let decoder = JSONDecoder()
-////				self.someModel = try decoder.decode(someMOdel.self, from: dats)
-//			} catch {
-//				print("error decoding some Object \(error)")
-//				completion(error)
-//				return
-//			}
+			guard let data = data else {
+				completion(error)
+				return
+			}
+			
+
+			print(data)
+			do{
+				let decoder = JSONDecoder()
+				let decodedData = try decoder.decode(SuccessResponse.self, from: data)
+				self.token = decodedData.token
+				print(decodedData.token)
+				completion(nil)
+			} catch {
+				print("error decoding token")
+				completion(error)
+			}
 			
 			completion(nil)
 		}.resume()
