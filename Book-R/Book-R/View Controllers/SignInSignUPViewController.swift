@@ -52,12 +52,10 @@ class SignInSignUpViewController: UIViewController {
 			apiController?.signUp(with: user, completion: { error in
 				if let error = error {
 					self.logInErrorAlert(error)
-					
 				} else {
-					DispatchQueue.main.async {
+//					DispatchQueue.main.async {
 						self.apiController?.setFavorites(user: user)
-					}
-//					self.finishCleanUP()
+//					}
 				}
 			})
 		} else {
@@ -65,12 +63,10 @@ class SignInSignUpViewController: UIViewController {
 			apiController?.signIn(with: user, completion: { error in
 				if let error = error {
 					self.logInErrorAlert(error)
-					
 				} else {
-					DispatchQueue.main.async {
+//					DispatchQueue.main.async {
 						self.apiController?.setFavorites(user: user)
-					}
-//					self.finishCleanUP()
+//					}
 				}
 	
 			})

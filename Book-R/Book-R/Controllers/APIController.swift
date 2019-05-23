@@ -18,16 +18,6 @@ enum HTTPMethod: String {
 
 class APIController {
 	
-	init () {
-		fetchBooks { (error) in
-			if let error = error {
-				print(error)
-			}
-		}
-		
-		
-	}
-	
 	func signUp(with user: User, completion: @escaping (Error?) -> ()) {
 		let signUpUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/auth/register")!
 		
@@ -150,12 +140,9 @@ class APIController {
 			
 			do {
 				let booksDecoded = try JSONDecoder().decode([Book].self, from: data)
-//				print(booksDecoded)
-				
 				for book in booksDecoded {
 					self.createBookSave(book: book)
 				}
-				
 				
 				self.books = booksDecoded
 				completion(nil)
@@ -183,11 +170,7 @@ class APIController {
 			
 			do {
 				let bookDecoded = try JSONDecoder().decode(BookDetail.self, from: data)
-//				print(bookDecoded)
 				self.bookDetail.append(bookDecoded)
-				
-				
-				
 				completion(.success(bookDecoded))
 			} catch {
 				completion(.failure(error))
@@ -196,8 +179,8 @@ class APIController {
 		}.resume()
 	}
 	
-	func fetchImage(with isbn: String, completion: @escaping (Result<Data, Error>) -> ()){
-		let imageurl = URL(string: "https://covers.openlibrary.org/b/isbn/\(isbn)-M.jpg")!
+	func fetchImageData(with url: String, completion: @escaping (Result<Data, Error>) -> ()){
+		let imageurl = URL(string: url)!
 		var request = URLRequest(url: imageurl)
 		request.httpMethod = "GET"
 		
@@ -214,7 +197,7 @@ class APIController {
 			}
 			
 			completion(.success(data))
-		}.resume()
+			}.resume()
 	}
 	
 	func fetchBookReviewDetail(bookID: Int, completion: @escaping (Result<[Review], Error>) -> ()) {
@@ -243,9 +226,18 @@ class APIController {
 			}.resume()
 	}
 	
+	
+	init () {
+		fetchBooks { (error) in
+			if let error = error { print(error) }
+		}
+	}
+	
 	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books/")
 	
 	private(set) var books: [Book] = []
+	private(set) var booksFeatured: [Book] = []
+	
 	private(set) var bookDetail: [BookDetail] = []
 	
 	var token: String?
@@ -262,13 +254,10 @@ class APIController {
 
 extension APIController {
 	private func createBookSave(book: Book) {
-		
-		fetchImage(with: book.isbn, completion: { result in
+		fetchImageData(with: book.cover_url, completion: { result in
 			if let dataget = try? result.get() {
-//				DispatchQueue.main.async {
 				let bookSave = BookSave(id: book.id, title: book.title, isbn: book.isbn, cover_Image: dataget, description: book.description)
-					self.bookSaves.append(bookSave)
-//				}
+				self.bookSaves.append(bookSave)
 			}
 		})
 	}
@@ -304,3 +293,23 @@ extension APIController {
 }
 
 
+//	func fetchImage(with isbn: String, completion: @escaping (Result<Data, Error>) -> ()){
+//		let imageurl = URL(string: "https://covers.openlibrary.org/b/isbn/\(isbn)-M.jpg")!
+//		var request = URLRequest(url: imageurl)
+//		request.httpMethod = "GET"
+//
+//		URLSession.shared.dataTask(with: request) { (data, _, error) in
+//			if let error = error {
+//				completion(.failure(error))
+//				return
+//			}
+//
+//			guard let data = data else {
+//				print("Error Converting data to image.")
+//				completion(.failure(NSError()))
+//				return
+//			}
+//
+//			completion(.success(data))
+//		}.resume()
+//	}

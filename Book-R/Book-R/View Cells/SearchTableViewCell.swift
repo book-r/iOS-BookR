@@ -19,6 +19,10 @@ class SearchTableViewCell: UITableViewCell, APIControllerProtocol {
 		
 		if let image = UIImage(data: book.cover_Image) {
 			bookImageView.image = image
+			
+		} else {
+			print("No Image!!")
+			bookImageView.image = #imageLiteral(resourceName: "temp_bkCover")
 		}
 	}
 	

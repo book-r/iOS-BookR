@@ -81,12 +81,21 @@
                                     <constraint firstItem="any-wJ-dKN" firstAttribute="top" secondItem="pnl-Cs-Phw" secondAttribute="top" id="ysg-gh-7gu"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookr_logo1" translatesAutoresizingMaskIntoConstraints="NO" id="5rW-C5-8U0">
+                                <rect key="frame" x="20" y="212" width="374" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="ZRE-Y2-qp2"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="5rW-C5-8U0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2se-KD-69h"/>
+                            <constraint firstItem="5rW-C5-8U0" firstAttribute="top" secondItem="pnl-Cs-Phw" secondAttribute="bottom" constant="8" id="Pi7-Hb-t4W"/>
                             <constraint firstItem="pnl-Cs-Phw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dFT-oG-fSV"/>
                             <constraint firstItem="pnl-Cs-Phw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="doO-4Y-d6C"/>
                             <constraint firstItem="pnl-Cs-Phw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="fge-iy-KxD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5rW-C5-8U0" secondAttribute="trailing" constant="20" id="jeR-eA-l4L"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pnl-Cs-Phw" secondAttribute="trailing" constant="16" id="sE3-qg-Gum"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -101,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4432" y="1507"/>
+            <point key="canvasLocation" x="4431.884057971015" y="1506.6964285714284"/>
         </scene>
         <!--Book Detail View Controller-->
         <scene sceneID="sXt-x2-jL8">
@@ -116,7 +125,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sbv-7V-dYd">
                                         <rect key="frame" x="105.5" y="8" width="163" height="198"/>
-                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.96862745100000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Sbv-7V-dYd" secondAttribute="height" multiplier="163:198" id="Glf-f4-aV2"/>
                                             <constraint firstAttribute="height" constant="198" id="wKB-Vo-Xqu"/>
@@ -652,4 +661,7 @@
             <point key="canvasLocation" x="3939.130434782609" y="762.72321428571422"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bookr_logo1" width="750" height="200"/>
+    </resources>
 </document>

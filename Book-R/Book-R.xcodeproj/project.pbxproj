@@ -130,8 +130,8 @@
 		E8F08E53229313A80083B700 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E81502902293B7A60015329A /* BookRTabBarController.swift */,
 				E8F08E54229313DE0083B700 /* SignInSignUPViewController.swift */,
+				E81502902293B7A60015329A /* BookRTabBarController.swift */,
 				E815029A229453910015329A /* settingsTableViewController.swift */,
 				E81502942293C4970015329A /* FavoritesCollectionViewController.swift */,
 				E8150298229453660015329A /* SearchTableViewController.swift */,
