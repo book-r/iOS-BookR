@@ -14,6 +14,11 @@ class BookReviewsTableViewController: UITableViewController {
         super.viewDidLoad()
 
 	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		tableView.reloadData()
+	}
 
 	@IBAction func doneButton(_ sender: Any) {
 		dismiss(animated: true, completion: nil)
@@ -36,13 +41,16 @@ class BookReviewsTableViewController: UITableViewController {
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "submitReviewSegue" {
-			guard let vc = segue.destination as? SubmitReviewViewController else { return }
+			guard let vc = segue.destination as? SubmitReviewViewController,
+				let book_id = book_id else { return }
+			
 			vc.apiController = apiController
-		
+			vc.book_id = book_id
 		}
 	}
 	
 	
 	var apiController: APIController?
 	var reviews: [Review]?
+	var book_id: Int?
 }

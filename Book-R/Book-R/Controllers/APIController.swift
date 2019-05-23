@@ -223,6 +223,56 @@ class APIController {
 			}.resume()
 	}
 	
+	func submitReview(with token: SuccessResponse, review: BookReview, completion: @escaping (Error?) -> ()) {
+		let url = URL(string: "https://lambda-bookr.herokuapp.com/api/reviews/")!
+		
+		var request = URLRequest(url: url)
+		request.httpMethod = HTTPMethod.post.rawValue
+		request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+		request.setValue(token.token , forHTTPHeaderField: "Authorization")
+		
+		do {
+			let encoder = JSONEncoder()
+			let jsonData = try encoder.encode(review)
+			request.httpBody = jsonData
+		} catch {
+			print("Error encoding review model: \(error)")
+			completion(error)
+		}
+		
+		URLSession.shared.dataTask(with: request) { data, response, error in
+			if let response = response as? HTTPURLResponse{
+				print(response.statusCode)
+				let nsError = NSError(domain: "", code: response.statusCode, userInfo: nil)
+				completion(nsError)
+			}
+
+			if let error = error {
+				completion(error)
+			}
+
+//			guard let data = data else {
+//				completion(error)
+//				return
+//			}
+//
+//			do{
+//				let decoder = JSONDecoder()
+//				let decodedData = try decoder.decode(SuccessResponse.self, from: data)
+//				self.token = decodedData
+//
+//				print(decodedData.token)
+//				completion(nil)
+//			} catch {
+//				print("error decoding token")
+//				completion(error)
+//			}
+//
+			completion(nil)
+			}.resume()
+		
+	}
+	
 	
 	init () {
 		fetchBooks { (error) in
@@ -295,24 +345,3 @@ extension APIController {
 	}
 }
 
-
-//	func fetchImage(with isbn: String, completion: @escaping (Result<Data, Error>) -> ()){
-//		let imageurl = URL(string: "https://covers.openlibrary.org/b/isbn/\(isbn)-M.jpg")!
-//		var request = URLRequest(url: imageurl)
-//		request.httpMethod = "GET"
-//
-//		URLSession.shared.dataTask(with: request) { (data, _, error) in
-//			if let error = error {
-//				completion(.failure(error))
-//				return
-//			}
-//
-//			guard let data = data else {
-//				print("Error Converting data to image.")
-//				completion(.failure(NSError()))
-//				return
-//			}
-//
-//			completion(.success(data))
-//		}.resume()
-//	}

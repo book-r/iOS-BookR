@@ -20,3 +20,11 @@ struct Book: Codable, Equatable {
 	let publisher_id: Int
 	let featured: Bool
 }
+
+struct BookReview: Codable {
+	let rating: Double
+	let comment: String
+	let book_id: Int
+	let user_id: Int
+	
+}

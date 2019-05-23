@@ -506,8 +506,8 @@
                         <viewLayoutGuide key="safeArea" id="Jqb-fU-69F"/>
                     </view>
                     <connections>
-                        <outlet property="bookTitleLabel" destination="lba-u6-maQ" id="f7w-QH-9Hs"/>
                         <outlet property="reviewTextView" destination="Ltq-UV-leT" id="0pJ-Ee-Fpz"/>
+                        <outlet property="usernameLabel" destination="lba-u6-maQ" id="f7w-QH-9Hs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4F-Hv-CpM" userLabel="First Responder" sceneMemberID="firstResponder"/>

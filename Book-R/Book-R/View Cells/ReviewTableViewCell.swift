@@ -15,7 +15,7 @@ class ReviewTableViewCell: UITableViewCell {
 
 		nameLabel?.text = "user: " + review.username
 		RatingLabel?.text = "rating: " + String(Int(review.rating))
-		reviewTextView?.text = "Review: " + review.comment
+		reviewTextView?.text = "\t" + review.comment
 	}
 	
 	
