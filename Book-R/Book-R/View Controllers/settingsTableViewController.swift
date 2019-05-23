@@ -20,12 +20,12 @@ class settingsTableViewController: UITableViewController, APIControllerProtocol 
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "settingsID", for: indexPath)
-		cell.textLabel?.text = "log out"
+		cell.textLabel?.text = "Log Out"
 		return cell
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let alertController = UIAlertController(title: "Sign Out?", message: nil, preferredStyle: .alert)
+		let alertController = UIAlertController(title: "Log Out?", message: nil, preferredStyle: .alert)
 		alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
 			self.apiController?.token = nil
 		}))

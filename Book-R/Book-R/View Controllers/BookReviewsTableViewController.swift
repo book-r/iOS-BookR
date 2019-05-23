@@ -34,6 +34,14 @@ class BookReviewsTableViewController: UITableViewController {
 		return reviewCell
 	}
 	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "submitReviewSegue" {
+			guard let vc = segue.destination as? SubmitReviewViewController else { return }
+			vc.apiController = apiController
+		
+		}
+	}
+	
 	
 	var apiController: APIController?
 	var reviews: [Review]?

@@ -32,12 +32,11 @@ class StarControl: UIControl {
 			label.frame = frame
 			label.tag = i + 1
 			label.font = UIFont.boldSystemFont(ofSize: 32)
-			//"★"
 			label.text = "☆"
 			performFlare()
 			starLabels.append(label)
 		}
-//		starLabels[0].textColor = .red
+		
 		starLabels.forEach( { addSubview( $0 )} )
 	}
 	

@@ -31,6 +31,7 @@
 		E8F08E55229313DE0083B700 /* SignInSignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F08E54229313DE0083B700 /* SignInSignUPViewController.swift */; };
 		E8F08E5722931ACC0083B700 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F08E5622931ACC0083B700 /* APIController.swift */; };
 		E8F08E5A229336F30083B700 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F08E59229336F30083B700 /* User.swift */; };
+		E8FAE98B2297134A00EED0BE /* SubmitReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FAE98A2297134A00EED0BE /* SubmitReviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		E8F08E54229313DE0083B700 /* SignInSignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSignUPViewController.swift; sourceTree = "<group>"; };
 		E8F08E5622931ACC0083B700 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		E8F08E59229336F30083B700 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E8FAE98A2297134A00EED0BE /* SubmitReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitReviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				E85D35B222961AB80027BD42 /* BookDetailTableViewController.swift */,
 				E85D35B422961E610027BD42 /* BookReviewsTableViewController.swift */,
 				E85D35B92296749F0027BD42 /* FavoriteViewController.swift */,
+				E8FAE98A2297134A00EED0BE /* SubmitReviewViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				E8F08E5722931ACC0083B700 /* APIController.swift in Sources */,
 				E85D35B822965B930027BD42 /* ReviewTableViewCell.swift in Sources */,
 				E81502A322948A7C0015329A /* BookDetail.swift in Sources */,
+				E8FAE98B2297134A00EED0BE /* SubmitReviewViewController.swift in Sources */,
 				E85D35B522961E610027BD42 /* BookReviewsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

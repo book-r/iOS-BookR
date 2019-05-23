@@ -14,9 +14,12 @@ class ReviewTableViewCell: UITableViewCell {
 		guard let review = review else { return }
 
 		nameLabel?.text = "user: " + review.username
-		reviewTextView?.text = "review: " + review.comment
+		RatingLabel?.text = "rating: " + String(Int(review.rating))
+		reviewTextView?.text = "Review: " + review.comment
 	}
 	
+	
+	@IBOutlet var RatingLabel: UILabel!
 	@IBOutlet var nameLabel: UILabel!
 	@IBOutlet var reviewTextView: UITextView!
 	

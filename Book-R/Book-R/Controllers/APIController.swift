@@ -60,7 +60,7 @@ class APIController {
 			do{
 				let decoder = JSONDecoder()
 				let decodedData = try decoder.decode(SuccessResponse.self, from: data)
-				self.token = decodedData.token
+				self.token = decodedData
 				print(decodedData.token)
 				completion(nil)
 			} catch {
@@ -89,8 +89,6 @@ class APIController {
 			completion(error)
 		}
 		
-		// make urlsession
-		
 		URLSession.shared.dataTask(with: request) { data, response, error in
 			if let response = response as? HTTPURLResponse{
 //				response.statusCode != 200 {
@@ -107,13 +105,12 @@ class APIController {
 				completion(error)
 				return
 			}
-			
 
-			print(data)
 			do{
 				let decoder = JSONDecoder()
 				let decodedData = try decoder.decode(SuccessResponse.self, from: data)
-				self.token = decodedData.token
+				self.token = decodedData
+				
 				print(decodedData.token)
 				completion(nil)
 			} catch {
@@ -240,7 +237,7 @@ class APIController {
 	
 	private(set) var bookDetail: [BookDetail] = []
 	
-	var token: String?
+	var token: SuccessResponse?
 	
 	private(set) var loggedInuser: User?
 	private(set) var users: [User] = []
