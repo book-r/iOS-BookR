@@ -38,6 +38,8 @@ class SignInSignUpViewController: UIViewController {
 			apiController?.signUp(with: user, completion: { error in
 				if let error = error {
 					print(error)
+				} else {
+					self.apiController?.setFavorites(user: user)
 				}
 			})
 			
@@ -46,7 +48,10 @@ class SignInSignUpViewController: UIViewController {
 			apiController?.signIn(with: user, completion: { error in
 				if let error = error {
 					print("Error Signig in \(error)")
+				} else {
+					self.apiController?.setFavorites(user: user)
 				}
+	
 			})
 			
 		}

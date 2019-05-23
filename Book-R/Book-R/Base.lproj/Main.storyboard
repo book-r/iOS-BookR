@@ -516,7 +516,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="bookImageView" destination="RvB-0q-iNX" id="L1Q-TQ-8My"/>
-                                    <segue destination="Vqh-ax-h54" kind="showDetail" id="D4e-YI-F6c"/>
+                                    <segue destination="Vqh-ax-h54" kind="showDetail" identifier="FavortieBookDetailSegue" id="D4e-YI-F6c"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

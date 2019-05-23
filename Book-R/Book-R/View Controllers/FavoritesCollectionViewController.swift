@@ -31,7 +31,7 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return apiController?.books.count ?? 0
+		return favoriteBooks.count
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -44,6 +44,7 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
 			print("Not Set")
 		}
 		
+
 		return bookcell
 	}
 	
@@ -52,9 +53,23 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
 			guard let vc = segue.destination as? SignInSignUpViewController else { return }
 			vc.apiController = apiController
 			
+		} else if segue.identifier == "FavortieBookDetailSegue" {
+			guard let vc = segue.destination as? FavoriteViewController else { return }
+			vc.apiController = apiController
+		}
+	}
+	
+	func setBooks () {
+		if let books = apiController?.bookSaves {
+			favoriteBooks = books
+			collectionView.reloadData()
 		}
 	}
 
-	var apiController: APIController?
+	var apiController: APIController? {
+		didSet { setBooks() }
+	}
+	
+	var favoriteBooks: [BookSave] = []
 	@IBOutlet var imageView: UIImageView!
 }

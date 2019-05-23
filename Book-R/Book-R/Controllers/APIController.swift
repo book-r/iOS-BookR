@@ -24,6 +24,8 @@ class APIController {
 				print(error)
 			}
 		}
+		
+		
 	}
 	
 	func signUp(with user: User, completion: @escaping (Error?) -> ()) {
@@ -68,7 +70,6 @@ class APIController {
 			do{
 				let decoder = JSONDecoder()
 				let decodedData = try decoder.decode(SuccessResponse.self, from: data)
-				
 				self.token = decodedData.token
 				print(decodedData.token)
 				completion(nil)
@@ -154,6 +155,7 @@ class APIController {
 				for book in booksDecoded {
 					self.createBookSave(book: book)
 				}
+				
 				
 				self.books = booksDecoded
 				completion(nil)
@@ -244,14 +246,15 @@ class APIController {
 	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books/")
 	private(set) var books: [Book] = []
 	private(set) var bookDetail: [BookDetail] = []
-	private(set) var bookSaves: [BookSave] = []
-	
 	
 	var token: String?
 	
-	
 	private(set) var loggedInuser: User?
 	private(set) var users: [User] = []
+	
+	private(set) var bookSaves: [BookSave] = []
+	private(set) var favoritBooks: FavoriteBooks?
+	
 	
 	
 }
@@ -290,7 +293,13 @@ extension APIController {
 		return arr
 	}
 	
+	func setFavorites(user: User) {
+		favoritBooks = FavoriteBooks(user: user, books: [])
+	}
 	
+	func addBookSaveToFavorites(book: BookSave) {
+		favoritBooks?.books?.append(book)
+	}
 }
 
 

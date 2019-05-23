@@ -31,16 +31,7 @@ class BookRTabBarController: UITabBarController {
 }
 	
 	
-//	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//		if segue.identifier == "" {
-//			guard let vc = segue.destination as? SignInSignUpViewController else { return }
-//			//send controller to sign in
-//
-//		}
-//
-//	}
-	
+
 	
 
 
