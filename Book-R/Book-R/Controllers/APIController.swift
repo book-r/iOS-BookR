@@ -244,6 +244,7 @@ class APIController {
 	}
 	
 	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books/")
+	
 	private(set) var books: [Book] = []
 	private(set) var bookDetail: [BookDetail] = []
 	

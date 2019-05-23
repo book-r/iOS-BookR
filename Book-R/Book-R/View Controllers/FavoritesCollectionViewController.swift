@@ -13,9 +13,9 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
-//		if apiController?.token == nil {
-//			performSegue(withIdentifier: "SignInSegue", sender: self)
-//		}
+		if apiController?.token == nil {
+			performSegue(withIdentifier: "SignInSegue", sender: self)
+		}
 		
 		collectionView.reloadData()
 	}

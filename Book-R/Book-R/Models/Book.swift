@@ -14,7 +14,9 @@ struct Book: Codable, Equatable {
 	let isbn: String
 	let cover_url: String
 	let description: String
+	let average: Double
 	let edition: String
 	let year: Int
 	let publisher_id: Int
+	let featured: Bool
 }

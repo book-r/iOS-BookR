@@ -19,6 +19,8 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol{
         super.viewDidLoad()
 		searchBar.delegate = self
 		tableView.reloadData()
+		
+		
 	}
 
 	

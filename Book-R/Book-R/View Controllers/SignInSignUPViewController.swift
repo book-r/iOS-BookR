@@ -21,13 +21,27 @@ class SignInSignUpViewController: UIViewController {
 		
     }
 	
+	fileprivate func logInErrorAlert(_ error: Error?) {
+		if let error = error {
+			print(error)
+		}
+		let alertController = UIAlertController(title: "Error", message: "Invalid password and/or username.\nPlease sign up.", preferredStyle: .alert)
+		alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+		self.present(alertController, animated: true)
+	}
+	
+	fileprivate func finishCleanUP() {
+		usernameLabel.text = nil
+		passwordLabel.text = nil
+		
+		dismiss(animated: true, completion: nil)
+	}
+	
 	@IBAction func signInButton(_ sender: Any) {
 		guard let username = usernameLabel.text,
 			let password = passwordLabel.text, !username.isEmpty , !password.isEmpty else {
-			//if error
-			let alertController = UIAlertController(title: "Error", message: "Invalid password and/or username.\nPlease sign up.", preferredStyle: .alert)
-			alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-			present(alertController, animated: true)
+	
+			logInErrorAlert(nil)
 			return
 		}
 		
@@ -37,31 +51,35 @@ class SignInSignUpViewController: UIViewController {
 		if loginType == .signUp {
 			apiController?.signUp(with: user, completion: { error in
 				if let error = error {
-					print(error)
+					self.logInErrorAlert(error)
+					
 				} else {
-					self.apiController?.setFavorites(user: user)
+					DispatchQueue.main.async {
+						self.apiController?.setFavorites(user: user)
+					}
+//					self.finishCleanUP()
 				}
 			})
-			
 		} else {
 		
 			apiController?.signIn(with: user, completion: { error in
 				if let error = error {
-					print("Error Signig in \(error)")
+					self.logInErrorAlert(error)
+					
 				} else {
-					self.apiController?.setFavorites(user: user)
+					DispatchQueue.main.async {
+						self.apiController?.setFavorites(user: user)
+					}
+//					self.finishCleanUP()
 				}
 	
 			})
 			
 		}
-		
+		finishCleanUP()
 		print(username,"-", password)
 		
-		usernameLabel.text = nil
-		passwordLabel.text = nil
-		
-		dismiss(animated: true, completion: nil)
+	
 	}
 	@IBAction func segmentControlTapped(_ sender: UISegmentedControl) {
 		
