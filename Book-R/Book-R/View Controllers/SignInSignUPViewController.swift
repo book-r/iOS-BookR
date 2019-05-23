@@ -30,12 +30,7 @@ class SignInSignUpViewController: UIViewController {
 		self.present(alertController, animated: true)
 	}
 	
-	fileprivate func finishCleanUP() {
-		usernameLabel.text = nil
-		passwordLabel.text = nil
-		
-		dismiss(animated: true, completion: nil)
-	}
+	
 	
 	@IBAction func signInButton(_ sender: Any) {
 		guard let username = usernameLabel.text,
@@ -53,9 +48,8 @@ class SignInSignUpViewController: UIViewController {
 				if let error = error {
 					self.logInErrorAlert(error)
 				} else {
-//					DispatchQueue.main.async {
-						self.apiController?.setFavorites(user: user)
-//					}
+
+					self.apiController?.setFavorites(user: user)
 				}
 			})
 		} else {
@@ -64,15 +58,15 @@ class SignInSignUpViewController: UIViewController {
 				if let error = error {
 					self.logInErrorAlert(error)
 				} else {
-//					DispatchQueue.main.async {
-						self.apiController?.setFavorites(user: user)
-//					}
+
+					self.apiController?.setFavorites(user: user)
 				}
 	
 			})
 			
 		}
-		finishCleanUP()
+		
+		dismiss(animated: true, completion: nil)
 		print(username,"-", password)
 		
 	
