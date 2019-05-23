@@ -142,7 +142,11 @@ class APIController {
 				let booksDecoded = try JSONDecoder().decode([Book].self, from: data)
 				for book in booksDecoded {
 					self.createBookSave(book: book)
+					
+				
 				}
+				
+				
 				
 				self.books = booksDecoded
 				completion(nil)
@@ -236,7 +240,7 @@ class APIController {
 	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books/")
 	
 	private(set) var books: [Book] = []
-	private(set) var booksFeatured: [Book] = []
+	
 	
 	private(set) var bookDetail: [BookDetail] = []
 	
@@ -246,6 +250,7 @@ class APIController {
 	private(set) var users: [User] = []
 	
 	private(set) var bookSaves: [BookSave] = []
+	private(set) var booksFeatured: [BookSave] = []
 	private(set) var favoritBooks: FavoriteBooks?
 	
 	
@@ -256,8 +261,13 @@ extension APIController {
 	private func createBookSave(book: Book) {
 		fetchImageData(with: book.cover_url, completion: { result in
 			if let dataget = try? result.get() {
+				
 				let bookSave = BookSave(id: book.id, title: book.title, isbn: book.isbn, cover_Image: dataget, description: book.description)
 				self.bookSaves.append(bookSave)
+
+				if book.featured {
+					self.booksFeatured.append(bookSave)
+				}
 			}
 		})
 	}

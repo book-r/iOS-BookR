@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoritesCollectionViewController: UICollectionViewController, APIControllerProtocol {
+class FeaturedCollectionViewController: UICollectionViewController, APIControllerProtocol {
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
@@ -31,14 +31,14 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return favoriteBooks.count
+		return apiController?.booksFeatured.count ?? 0
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCollectionID", for: indexPath)
 		guard let bookcell = cell as? BookCollectionViewCell else { return cell }
 
-		if let book = apiController?.bookSaves[indexPath.item] {
+		if let book = apiController?.booksFeatured[indexPath.item] {
 			bookcell.bookImageView.image = UIImage(data: book.cover_Image)
 		} else {
 			print("Not Set")
@@ -53,23 +53,40 @@ class FavoritesCollectionViewController: UICollectionViewController, APIControll
 			guard let vc = segue.destination as? SignInSignUpViewController else { return }
 			vc.apiController = apiController
 			
-		} else if segue.identifier == "FavortieBookDetailSegue" {
-			guard let vc = segue.destination as? FavoriteViewController else { return }
+		} else if segue.identifier == "CollectionToDetailSegue" {
+			guard let vc = segue.destination as? BookDetailViewController,
+				let cell = sender as? BookCollectionViewCell,
+				let indexpath = collectionView.indexPath(for: cell) else { return }
+			
+			let book = apiController?.booksFeatured[indexpath.row]
 			vc.apiController = apiController
-		}
-	}
-	
-	func setBooks () {
-		if let books = apiController?.bookSaves {
-			favoriteBooks = books
-			collectionView.reloadData()
-		}
-	}
+			vc.imageData = book?.cover_Image
+			
+			
 
-	var apiController: APIController? {
-		didSet { setBooks() }
+			apiController?.fetchBookDetail(bookID: book!.id , completion: { result in
+				if let bookDetail = try? result.get() {
+					vc.bookDetail = bookDetail
+				} else {
+					print("error getting book Detail")
+				}
+			})
+
+		}
 	}
 	
-	var favoriteBooks: [BookSave] = []
+//	func setBooks () {
+//		if let books = apiController?.booksFeatured {
+//			featuredBooks = books
+//			collectionView.reloadData()
+//		}
+//	}
+
+	var apiController: APIController?
+//	{
+//		didSet { setBooks() }
+//	}
+	
+//	var featuredBooks: [BookSave] = []
 	@IBOutlet var imageView: UIImageView!
 }

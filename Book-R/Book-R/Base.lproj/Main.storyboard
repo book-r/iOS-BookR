@@ -296,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="slh-w9-i0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6805.7971014492759" y="1506.6964285714284"/>
+            <point key="canvasLocation" x="5677" y="2395"/>
         </scene>
         <!--Book Detail Table View Controller-->
         <scene sceneID="Akb-Pr-fX0">
@@ -353,7 +353,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eji-7U-LwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7622" y="1941"/>
+            <point key="canvasLocation" x="6536" y="2766"/>
         </scene>
         <!--Book Reviews Table View Controller-->
         <scene sceneID="her-QZ-kNh">
@@ -424,7 +424,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ObA-gc-UCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7622" y="1255"/>
+            <point key="canvasLocation" x="6535" y="2060"/>
         </scene>
         <!--Search Table View Controller-->
         <scene sceneID="azX-k0-MZa">
@@ -505,10 +505,10 @@
             </objects>
             <point key="canvasLocation" x="5676.811594202899" y="1506.6964285714284"/>
         </scene>
-        <!--Favorites Collection View Controller-->
+        <!--Featured Collection View Controller-->
         <scene sceneID="aOo-0J-8IO">
             <objects>
-                <collectionViewController id="i2O-o9-RTw" customClass="FavoritesCollectionViewController" customModule="Book_R" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="i2O-o9-RTw" customClass="FeaturedCollectionViewController" customModule="Book_R" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ZDr-r9-rDl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -541,7 +541,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="bookImageView" destination="RvB-0q-iNX" id="L1Q-TQ-8My"/>
-                                    <segue destination="Vqh-ax-h54" kind="showDetail" identifier="FavortieBookDetailSegue" id="D4e-YI-F6c"/>
+                                    <segue destination="7O9-Wb-zgJ" kind="presentation" identifier="CollectionToDetailSegue" id="nZV-hE-IIH"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -664,4 +664,7 @@
     <resources>
         <image name="bookr_logo1" width="750" height="200"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="nZV-hE-IIH"/>
+    </inferredMetricsTieBreakers>
 </document>
