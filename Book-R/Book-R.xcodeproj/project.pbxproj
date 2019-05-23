@@ -47,6 +47,7 @@
 		E85D35B02295DB450027BD42 /* SuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessResponse.swift; sourceTree = "<group>"; };
 		E85D35B222961AB80027BD42 /* BookDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailTableViewController.swift; sourceTree = "<group>"; };
 		E85D35B422961E610027BD42 /* BookReviewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookReviewsTableViewController.swift; sourceTree = "<group>"; };
+		E85D35B622963C500027BD42 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E8F08E3E229311DC0083B700 /* Book-R.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book-R.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F08E41229311DC0083B700 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8F08E46229311DC0083B700 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		E8F08E35229311DC0083B700 = {
 			isa = PBXGroup;
 			children = (
+				E85D35B622963C500027BD42 /* MyPlayground.playground */,
 				E8F08E40229311DC0083B700 /* Book-R */,
 				E8F08E3F229311DC0083B700 /* Products */,
 			);

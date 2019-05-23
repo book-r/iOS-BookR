@@ -251,6 +251,18 @@ extension APIController {
 		
 	}
 	
+	// return and array of the structs labels
+	func mirrorStruct(book: BookDetail) -> [String] {
+		var arr: [String] = []
+		let mirror = Mirror(reflecting: book)
+		
+		for child in mirror.children {
+			arr.append(child.label!)
+		}
+		
+		
+		return arr
+	}
 	
 	
 }
