@@ -19,13 +19,11 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol{
         super.viewDidLoad()
 		searchBar.delegate = self
 		tableView.reloadData()
-		
-		
 	}
 
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return apiController?.books.count ?? 0
+		return apiController?.bookSaves.count ?? 0
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

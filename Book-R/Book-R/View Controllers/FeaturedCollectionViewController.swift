@@ -43,8 +43,6 @@ class FeaturedCollectionViewController: UICollectionViewController, APIControlle
 		} else {
 			print("Not Set")
 		}
-		
-
 		return bookcell
 	}
 	
@@ -61,8 +59,6 @@ class FeaturedCollectionViewController: UICollectionViewController, APIControlle
 			let book = apiController?.booksFeatured[indexpath.row]
 			vc.apiController = apiController
 			vc.imageData = book?.cover_Image
-			
-			
 
 			apiController?.fetchBookDetail(bookID: book!.id , completion: { result in
 				if let bookDetail = try? result.get() {
@@ -71,22 +67,9 @@ class FeaturedCollectionViewController: UICollectionViewController, APIControlle
 					print("error getting book Detail")
 				}
 			})
-
 		}
 	}
 	
-//	func setBooks () {
-//		if let books = apiController?.booksFeatured {
-//			featuredBooks = books
-//			collectionView.reloadData()
-//		}
-//	}
-
 	var apiController: APIController?
-//	{
-//		didSet { setBooks() }
-//	}
-	
-//	var featuredBooks: [BookSave] = []
 	@IBOutlet var imageView: UIImageView!
 }

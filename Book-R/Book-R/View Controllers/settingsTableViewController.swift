@@ -24,5 +24,16 @@ class settingsTableViewController: UITableViewController, APIControllerProtocol 
 		return cell
 	}
 	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let alertController = UIAlertController(title: "Sign Out?", message: nil, preferredStyle: .alert)
+		alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+			self.apiController?.token = nil
+		}))
+		
+		alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+		
+		present(alertController, animated: true)
+	}
+	
 	var apiController: APIController?
 }

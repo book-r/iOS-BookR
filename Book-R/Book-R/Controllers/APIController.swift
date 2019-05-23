@@ -139,18 +139,14 @@ class APIController {
 			}
 			
 			do {
+				
 				let booksDecoded = try JSONDecoder().decode([Book].self, from: data)
 				for book in booksDecoded {
 					self.createBookSave(book: book)
-					
-				
 				}
-				
-				
-				
-				self.books = booksDecoded
 				completion(nil)
 			} catch {
+				
 				completion(error)
 				return
 			}
