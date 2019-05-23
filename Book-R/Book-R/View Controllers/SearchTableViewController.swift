@@ -43,7 +43,19 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol{
 				let cell = sender as? SearchTableViewCell,
 				let indexpath = tableView.indexPath(for: cell) else { return }
 			
-			vc.book = apiController?.bookSaves[indexpath.row]
+			guard let currentBook = apiController?.bookSaves[indexpath.row] else { return }
+			
+			apiController?.fetchBookDetail(bookID: currentBook.id , completion: { result in
+
+				if let bookDetail = try? result.get() {
+					vc.bookDetail = bookDetail
+				} else {
+					print("error getting book Detail")
+				}
+
+			})
+			
+			vc.imageData = currentBook.cover_Image
 			vc.apiController = apiController
 		}
 	}

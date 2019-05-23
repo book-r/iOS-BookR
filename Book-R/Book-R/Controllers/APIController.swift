@@ -236,7 +236,7 @@ extension APIController {
 		fetchImage(with: book.isbn, completion: { result in
 			if let dataget = try? result.get() {
 //				DispatchQueue.main.async {
-					let bookSave = BookSave(title: book.title, isbn: book.isbn, cover_Image: dataget, description: book.description)
+				let bookSave = BookSave(id: book.id, title: book.title, isbn: book.isbn, cover_Image: dataget, description: book.description)
 					self.bookSaves.append(bookSave)
 //				}
 			}
