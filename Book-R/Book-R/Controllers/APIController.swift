@@ -58,6 +58,7 @@ class APIController {
 				let decoder = JSONDecoder()
 				let decodedData = try decoder.decode(SuccessResponse.self, from: data)
 				self.token = decodedData
+				
 				print(decodedData.token)
 				
 			} catch {
@@ -288,10 +289,11 @@ class APIController {
 				print("error fetching books from init \(error)")
 			}
 		}
-		
 	}
 	
-	var token: SuccessResponse?
+	var token: SuccessResponse? {
+		didSet{ loadFromPersistentStore() } 
+	}
 	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books")!
 	private(set) var booksFeatured: [Book] = []
 	private(set) var booksAll: [BookDetail] = []
@@ -317,7 +319,6 @@ extension APIController {
 		for (index, book) in books.enumerated() {
 			fetchImageData(with: book.cover_url) { result in
 				if let result = try? result.get() {
-					print(result)
 					self.booksAll[index].image_data = result
 				}
 			}
@@ -334,9 +335,31 @@ extension APIController {
 		bookmarkedBooks.append(book)
 		print(bookmarkedBooks.count)
 		// check if user exist , add to list and save
-		
+		if let username = token?.username {
+			checkAndSaveToPresistentStore(username: username, books: bookmarkedBooks)
+		}
 		
 	}
+	
+	func checkAndSaveToPresistentStore(username: String, books: [Book]) {
+		if returningUsers.isEmpty {
+	
+			let bookmarkedUser = BookmarkedUser(username: username, books: books)
+			returningUsers.append(bookmarkedUser)
+		
+		} else {
+			
+			for (index, b) in returningUsers.enumerated() {
+				if b.username == username {
+					returningUsers[index].books = books
+				}
+			}
+		}
+		
+		saveToPersistentStore()
+	}
+	
+	
 	
 	func deleteBookFromBookMarks(index: Int) {
 		bookmarkedBooks.remove(at: index)
@@ -377,8 +400,17 @@ extension APIController {
 		do {
 			let data = try Data(contentsOf: url)
 			let decoder = PropertyListDecoder()
-			let decodedBooks = try decoder.decode([BookmarkedUser].self, from: data)
-			returningUsers = decodedBooks
+			let decodedReturningUsers = try decoder.decode([BookmarkedUser].self, from: data)
+			returningUsers = decodedReturningUsers
+			
+			print("load from store \(returningUsers.count)")
+			for user in returningUsers {
+				print(user)
+				if user.username == token?.username {
+					bookmarkedBooks = user.books
+				}
+			}
+			
 			
 		}catch {
 			NSLog("Error loading book data: \(error)")
