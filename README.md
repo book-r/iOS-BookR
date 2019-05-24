@@ -7,7 +7,7 @@
 	- this app runs using the Book-R API 
 	- You can log in with username: Hector42 , password: 4242
 	- You can also sign up.
-	- Post and view Revies
+	- Post and view Reviews
 	- Bookmark your Favorite Books
 	- sing out so peers wont see your Bookmarked books.
 	
