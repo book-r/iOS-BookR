@@ -169,12 +169,9 @@ class APIController {
 			do {
 				
 				let booksDecoded = try JSONDecoder().decode([BookDetail].self, from: data)
-				
+				self.booksAll = booksDecoded
 				print(booksDecoded)
 				
-				//				for book in booksDecoded {
-//					self.createBookSave(book: book)
-//				}
 				completion(nil)
 			} catch {
 				
@@ -182,7 +179,7 @@ class APIController {
 				return
 			}
 			
-			}.resume()
+		}.resume()
 	}
 
 	func fetchBookDetail(bookID: Int, completion: @escaping (Result<BookDetail, Error>) -> ()) {
