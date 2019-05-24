@@ -4,11 +4,33 @@
 ###### Bookr a social platform for peer reviewed text books. 
 
 #### [Book-R API](https://lambda-bookr.herokuapp.com/api/)
-	
+	- this app runs using the Book-R API
 
 	
+###### Sign In or Sign Up with Book-R API 
 
 ![signIn](https://github.com/book-r/iOS-BookR/blob/master/imagesForReadme/bookrLogIn.png)
+
+
+
+###### This tab will show you featured books
+![FeaturedBooks](https://github.com/book-r/iOS-BookR/blob/master/imagesForReadme/BookR-Featured.png)
+
+
+###### This tab will allow you to scroll through all books in the api.
+![SearchBooks](https://github.com/book-r/iOS-BookR/blob/master/imagesForReadme/BookR-search.png)
+
+
+###### This tab will allow you to scroll through all bookmarked books - saved localy 
+![BookmarkedBooks](https://github.com/book-r/iOS-BookR/blob/master/imagesForReadme/BookR-Bookmarks.png)
+
+###### View Book imformation and Bookmark the book
+![BookDetail](https://github.com/book-r/iOS-BookR/blob/master/imagesForReadme/BookR-bookDetail.png)
+
+
+###### Comment on this Book 
+![SendComment](https://github.com/book-r/iOS-BookR/blob/master/imagesForReadme/BookR-ReviewBook.png)
+
 
 
 
