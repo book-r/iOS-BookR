@@ -292,7 +292,7 @@ class APIController {
 	}
 	
 	var token: SuccessResponse? {
-		didSet{ loadFromPersistentStore() } 
+		didSet{ loadFromPersistentStore() }
 	}
 	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books")!
 	private(set) var booksFeatured: [Book] = []
@@ -335,18 +335,27 @@ extension APIController {
 		bookmarkedBooks.append(book)
 		print(bookmarkedBooks.count)
 		// check if user exist , add to list and save
-		if let username = token?.username {
-			checkAndSaveToPresistentStore(username: username, books: bookmarkedBooks)
+		if let token = token {
+			checkAndSaveToPresistentStore(username: token.username, books: bookmarkedBooks)
 		}
 		
 	}
 	
-	func checkAndSaveToPresistentStore(username: String, books: [Book]) {
-		if returningUsers.isEmpty {
+	private func usernameExist(username: String) -> Bool{
+		
+		for user in returningUsers {
+			if user.username == username {
+				return true
+			}
+		}
 	
+		return false
+	}
+	
+	func checkAndSaveToPresistentStore(username: String, books: [Book]) {
+		if returningUsers.isEmpty || !usernameExist(username: username){
 			let bookmarkedUser = BookmarkedUser(username: username, books: books)
 			returningUsers.append(bookmarkedUser)
-		
 		} else {
 			
 			for (index, b) in returningUsers.enumerated() {
@@ -389,7 +398,6 @@ extension APIController {
 	}
 	
 	func loadFromPersistentStore() {
-		//make sure file exist
 		let fileManager = FileManager.default
 		guard let url = PersistentStoretURL,
 			fileManager.fileExists(atPath: url.path) else {
@@ -404,14 +412,13 @@ extension APIController {
 			returningUsers = decodedReturningUsers
 			
 			print("load from store \(returningUsers.count)")
+			guard let token = token else { return }
 			for user in returningUsers {
 				print(user)
-				if user.username == token?.username {
+				if user.username == token.username {
 					bookmarkedBooks = user.books
 				}
 			}
-			
-			
 		}catch {
 			NSLog("Error loading book data: \(error)")
 		}
