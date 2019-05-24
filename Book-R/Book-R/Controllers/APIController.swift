@@ -296,7 +296,7 @@ class APIController {
 	private(set) var booksFeatured: [Book] = []
 	private(set) var booksAll: [BookDetail] = []
 	private(set) var bookmarkedBooks: [Book] = []
-	
+	private(set) var returningUsers: [BookmarkedUser] = []
 	
 //	private(set) var loggedInuser: User?
 
@@ -333,6 +333,9 @@ extension APIController {
 		let book = Book(id: id, cover_url: cover_url, image_data: image_data)
 		bookmarkedBooks.append(book)
 		print(bookmarkedBooks.count)
+		// check if user exist , add to list and save
+		
+		
 	}
 	
 	func deleteBookFromBookMarks(index: Int) {
@@ -346,9 +349,8 @@ extension APIController {
 	private var PersistentStoretURL: URL? {
 		let fileManager = FileManager.default
 		guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-		let fileName = "UserFavoritesList.plist"
+		let fileName = "ReturningUsersList.plist"
 		let document = documents.appendingPathComponent(fileName)
-
 		return document
 	}
 	
@@ -356,7 +358,7 @@ extension APIController {
 		guard let url = PersistentStoretURL else { return }
 		do {
 			let encoder = PropertyListEncoder()
-			let data = try encoder.encode(bookmarkedBooks)
+			let data = try encoder.encode(returningUsers)
 			try data.write(to: url)
 		} catch {
 			NSLog("Error saving book data: \(error)")
@@ -375,8 +377,9 @@ extension APIController {
 		do {
 			let data = try Data(contentsOf: url)
 			let decoder = PropertyListDecoder()
-			let decodedBooks = try decoder.decode([Book].self, from: data)
-			bookmarkedBooks = decodedBooks
+			let decodedBooks = try decoder.decode([BookmarkedUser].self, from: data)
+			returningUsers = decodedBooks
+			
 		}catch {
 			NSLog("Error loading book data: \(error)")
 		}

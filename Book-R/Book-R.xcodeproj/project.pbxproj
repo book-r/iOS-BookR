@@ -15,7 +15,7 @@
 		E81502A12294734F0015329A /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81502A02294734F0015329A /* SearchTableViewCell.swift */; };
 		E81502A322948A7C0015329A /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81502A222948A7C0015329A /* BookDetail.swift */; };
 		E81502A52294BA1C0015329A /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81502A42294BA1C0015329A /* BookCollectionViewCell.swift */; };
-		E81502A82294D9FC0015329A /* BookSaves.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81502A72294D9FC0015329A /* BookSaves.swift */; };
+		E81502A82294D9FC0015329A /* BookmarkedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81502A72294D9FC0015329A /* BookmarkedUser.swift */; };
 		E81502AC2294E7EC0015329A /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81502AB2294E7EC0015329A /* BookDetailViewController.swift */; };
 		E85D35AC229507660027BD42 /* StarControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D35AB229507660027BD42 /* StarControl.swift */; };
 		E85D35AF229508890027BD42 /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D35AE229508890027BD42 /* UIView+ext.swift */; };
@@ -45,7 +45,7 @@
 		E81502A02294734F0015329A /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		E81502A222948A7C0015329A /* BookDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
 		E81502A42294BA1C0015329A /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
-		E81502A72294D9FC0015329A /* BookSaves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSaves.swift; sourceTree = "<group>"; };
+		E81502A72294D9FC0015329A /* BookmarkedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedUser.swift; sourceTree = "<group>"; };
 		E81502AB2294E7EC0015329A /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		E85D35AB229507660027BD42 /* StarControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarControl.swift; sourceTree = "<group>"; };
 		E85D35AE229508890027BD42 /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 				E85D35B02295DB450027BD42 /* SuccessResponse.swift */,
 				E815029E229454E80015329A /* Book.swift */,
 				E81502A222948A7C0015329A /* BookDetail.swift */,
-				E81502A72294D9FC0015329A /* BookSaves.swift */,
+				E81502A72294D9FC0015329A /* BookmarkedUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,7 +247,7 @@
 				E85D35AF229508890027BD42 /* UIView+ext.swift in Sources */,
 				E81502952293C4970015329A /* FeaturedCollectionViewController.swift in Sources */,
 				E8F08E5A229336F30083B700 /* User.swift in Sources */,
-				E81502A82294D9FC0015329A /* BookSaves.swift in Sources */,
+				E81502A82294D9FC0015329A /* BookmarkedUser.swift in Sources */,
 				E8F08E42229311DC0083B700 /* AppDelegate.swift in Sources */,
 				E81502AC2294E7EC0015329A /* BookDetailViewController.swift in Sources */,
 				E81502A12294734F0015329A /* SearchTableViewCell.swift in Sources */,

@@ -24,6 +24,7 @@ class SubmitReviewViewController: UIViewController {
     
 	@IBAction func starControlRatingValueChanged(_ sender: StarControl) {
 		value = sender.value
+		print(value)
 	}
 	
 	@IBAction func submitButton(_ sender: Any) {
