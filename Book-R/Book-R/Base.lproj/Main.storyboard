@@ -614,7 +614,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KjB-gB-alf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4423" y="1505"/>
+            <point key="canvasLocation" x="3939" y="1560"/>
         </scene>
         <!--Bookmarks Table View Controller-->
         <scene sceneID="cpu-oh-yAD">
@@ -803,6 +803,6 @@
         <image name="bookr_logo1" width="750" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="R5G-l3-VTf"/>
+        <segue reference="Qx7-s5-dXV"/>
     </inferredMetricsTieBreakers>
 </document>

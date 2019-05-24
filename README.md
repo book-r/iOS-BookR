@@ -12,7 +12,7 @@
 * Single Book Add Review Page - Clicking add review brings up a form (could be modal, could be its own page) where a user can add their review of the book. Clicking submit adds the review to the books information.
 * Delete Book - Modal confirming the action, on confirmation user is routed back to the home page and book is gone from the list of books. 
 * Data Modeling: Each book has a Title - String, Author - String, Publisher - String and Reviews- Array of Objects field. The * reviews object shape should be Reviewer - String, Review - String. 
-* Stretch Goal: A link to each book will take me to a site where I can purchase a book and compare prices.
+
 
 
 #
