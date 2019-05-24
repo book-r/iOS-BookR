@@ -167,14 +167,13 @@ class APIController {
 			}
 			
 			do {
-				
 				let booksDecoded = try JSONDecoder().decode([BookDetail].self, from: data)
 				self.booksAll = booksDecoded
-				print(booksDecoded)
-				
+				self.fetchImageDataForBooks(books: self.booksAll)
+				print(booksDecoded.count)
 				completion(nil)
 			} catch {
-				
+				print("error gettinng booksAll: \(error)")
 				completion(error)
 				return
 			}
@@ -320,7 +319,7 @@ class APIController {
 	}
 	
 	var token: SuccessResponse?
-	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books/?featured=false")!
+	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books")!
 	private(set) var booksFeatured: [Book] = []
 	
 	private(set) var books: [Book] = []
@@ -345,8 +344,18 @@ extension APIController {
 		for (index, book) in books.enumerated() {
 			fetchImageData(with: book.cover_url) { result in
 				if let result = try? result.get() {
-					print(result)
 					self.booksFeatured[index].image_data = result
+				}
+			}
+		}
+	}
+	
+	private func fetchImageDataForBooks(books: [BookDetail]) {
+		for (index, book) in books.enumerated() {
+			fetchImageData(with: book.cover_url) { result in
+				if let result = try? result.get() {
+					print(result)
+					self.booksAll[index].image_data = result
 				}
 			}
 		}

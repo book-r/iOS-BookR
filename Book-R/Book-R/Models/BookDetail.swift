@@ -18,7 +18,7 @@ struct BookDetail: Codable, Equatable {
 	let year: Int
 	let publisher_id: Int
 	let publisher: String
-	let average: Double
+	let average: Double?
 	
 	var image_data: Data?
 	
