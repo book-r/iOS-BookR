@@ -13,10 +13,10 @@ class FeaturedCollectionViewController: UICollectionViewController, APIControlle
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
+
 		if apiController?.token == nil {
 			performSegue(withIdentifier: "SignInSegue", sender: self)
 		}
-		
 		collectionView.reloadData()
 	}
 	
@@ -27,6 +27,7 @@ class FeaturedCollectionViewController: UICollectionViewController, APIControlle
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
 	}
 	
 	

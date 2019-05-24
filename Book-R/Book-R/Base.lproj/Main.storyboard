@@ -660,6 +660,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="booklImageView" destination="PcY-zX-vkR" id="2Bt-AZ-QVS"/>
+                                    <segue destination="7O9-Wb-zgJ" kind="presentation" id="R5G-l3-VTf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -802,6 +803,6 @@
         <image name="bookr_logo1" width="750" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qx7-s5-dXV"/>
+        <segue reference="R5G-l3-VTf"/>
     </inferredMetricsTieBreakers>
 </document>

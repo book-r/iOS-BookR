@@ -42,23 +42,31 @@ class SignInSignUpViewController: UIViewController {
 		}
 		let user = User(username: username, password: password)
 		if loginType == .signUp {
-			apiController?.signUp(with: user, completion: { error in
-				if let error = error {
-					self.logInErrorAlert(error)
-				}
-			})
+			
+			DispatchQueue.main.async {
+			
+				self.apiController?.signUp(with: user, completion: { error in
+					if let error = error {
+						self.logInErrorAlert(error)
+						return
+					}
+				})
+			}
+			
 		} else {
-			apiController?.signIn(with: user, completion: { error in
-				if let error = error {
-					self.logInErrorAlert(error)
-				}
-			})
+			DispatchQueue.main.async {
+				
+				self.apiController?.signIn(with: user, completion: { error in
+					if let error = error {
+						self.logInErrorAlert(error)
+						return
+					}
+				})
+			}
 			
 		}
 		
-		DispatchQueue.main.async {
-			self.dismiss(animated: true, completion: nil)
-		}
+		dismiss(animated: true, completion: nil)
 		print(username,"-", password)
 	}
 	
@@ -79,7 +87,6 @@ class SignInSignUpViewController: UIViewController {
 	@IBOutlet var passwordLabel: UITextField!
 	@IBOutlet var segmentController: UISegmentedControl!
 	
-	var apiController: APIController? {didSet{print("set")}}
-	
+	var apiController: APIController? 
 	var loginType: LoginType = .signIn
 }
