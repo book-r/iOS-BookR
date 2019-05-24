@@ -31,7 +31,6 @@ class BookmarksTableViewController: UITableViewController, APIControllerProtocol
 		let book = apiController?.bookmarkedBooks[indexPath.row],
 		let data = book.image_data else { return cell }
 		
-		
 		bookmarkCell.booklImageView.image = UIImage(data: data)
 		return bookmarkCell
 	}

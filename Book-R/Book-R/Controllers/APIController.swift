@@ -59,12 +59,12 @@ class APIController {
 				let decodedData = try decoder.decode(SuccessResponse.self, from: data)
 				self.token = decodedData
 				print(decodedData.token)
-				completion(nil)
+				
 			} catch {
 				print("error decoding token")
 				completion(error)
 			}
-			
+			completion(nil)
 		}.resume()
 		
 		
@@ -105,9 +105,7 @@ class APIController {
 				let decoder = JSONDecoder()
 				let decodedData = try decoder.decode(SuccessResponse.self, from: data)
 				self.token = decodedData
-				
 				print(decodedData.token)
-				completion(nil)
 			} catch {
 				print("error decoding token")
 				completion(error)
@@ -302,9 +300,6 @@ class APIController {
 	
 	private(set) var loggedInuser: User?
 	private(set) var users: [User] = []
-	
-	
-	
 	
 	private(set) var favoritBooks: FavoriteBooks?
 	
