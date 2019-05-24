@@ -57,20 +57,24 @@ class FeaturedCollectionViewController: UICollectionViewController, APIControlle
 		} else if segue.identifier == "CollectionToDetailSegue" {
 			guard let vc = segue.destination as? BookDetailViewController,
 				let cell = sender as? BookCollectionViewCell,
-				let indexpath = collectionView.indexPath(for: cell) else { return }
+				let indexpath = collectionView.indexPath(for: cell),
+				let book = apiController?.booksFeatured[indexpath.row],
+				let bookAll = findfromBookAll(id: book.id)	else { return }
 			
-			let book = apiController?.booksFeatured[indexpath.row]
+			vc.book = bookAll
 			vc.apiController = apiController
-//			vc.imageData = book?.cover_Image
-
-			apiController?.fetchBookDetail(bookID: book!.id , completion: { result in
-				if let bookDetail = try? result.get() {
-					vc.bookDetail = bookDetail
-				} else {
-					print("error getting book Detail")
-				}
-			})
 		}
+	}
+	
+	private func findfromBookAll(id: Int) -> BookDetail?{
+		guard let booksAll = apiController?.booksAll  else { return nil}
+		for book in booksAll {
+			if id == book.id {
+				return book
+			}
+		}
+		
+		return nil
 	}
 	
 	var apiController: APIController?

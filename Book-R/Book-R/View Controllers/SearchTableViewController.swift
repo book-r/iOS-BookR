@@ -35,26 +35,15 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol{
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//		if segue.identifier == "bookDetailSegue" {
-//			guard let vc = segue.destination as? BookDetailViewController,
-//				let cell = sender as? SearchTableViewCell,
-//				let indexpath = tableView.indexPath(for: cell) else { return }
-//
-//			guard let currentBook = apiController?.booksAll[indexpath.row] else { return }
-//
-////			apiController?.fetchBookDetail(bookID: currentBook.id , completion: { result in
-////
-////				if let bookDetail = try? result.get() {
-////					vc.bookDetail = bookDetail
-////				} else {
-////					print("error getting book Detail")
-////				}
-////
-////			})
-//
-//			vc.imageData = currentBook.cover_Image
-//			vc.apiController = apiController
-//		}
+		if segue.identifier == "bookDetailSegue" {
+			guard let vc = segue.destination as? BookDetailViewController,
+				let cell = sender as? SearchTableViewCell,
+				let indexpath = tableView.indexPath(for: cell),
+				let currentBook = apiController?.booksAll[indexpath.row] else { return }
+
+			vc.book = currentBook
+			vc.apiController = apiController
+		}
 	}
 
 	var apiController: APIController?
