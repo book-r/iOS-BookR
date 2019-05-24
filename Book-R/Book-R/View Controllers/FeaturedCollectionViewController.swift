@@ -18,8 +18,6 @@ class FeaturedCollectionViewController: UICollectionViewController, APIControlle
 		}
 		
 		collectionView.reloadData()
-		
-//		print(apiController?.booksFeatured.count)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -33,18 +31,21 @@ class FeaturedCollectionViewController: UICollectionViewController, APIControlle
 	
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return apiController?.booksFeatured.count ?? 0
+		
+		if let count = apiController?.booksFeatured.count {
+			return count
+		}
+		return 0
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCollectionID", for: indexPath)
-		guard let bookcell = cell as? BookCollectionViewCell else { return cell }
+		guard let bookcell = cell as? BookCollectionViewCell,
+			let book = apiController?.booksFeatured[indexPath.row],
+			let image_data = book.image_data	else { return cell }
+		
+			bookcell.bookImageView.image = UIImage(data: image_data)
 
-		if let book = apiController?.booksFeatured[indexPath.item] {
-			bookcell.bookImageView.image = UIImage(data: book.cover_Image)
-		} else {
-			print("Not Set")
-		}
 		return bookcell
 	}
 	
@@ -60,7 +61,7 @@ class FeaturedCollectionViewController: UICollectionViewController, APIControlle
 			
 			let book = apiController?.booksFeatured[indexpath.row]
 			vc.apiController = apiController
-			vc.imageData = book?.cover_Image
+//			vc.imageData = book?.cover_Image
 
 			apiController?.fetchBookDetail(bookID: book!.id , completion: { result in
 				if let bookDetail = try? result.get() {

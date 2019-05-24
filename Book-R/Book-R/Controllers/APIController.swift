@@ -92,7 +92,7 @@ class APIController {
 		URLSession.shared.dataTask(with: request) { data, response, error in
 			if let response = response as? HTTPURLResponse{
 //				response.statusCode != 200 {
-				print(response.statusCode)
+//				print(response.statusCode)
 				let nsError = NSError(domain: "", code: response.statusCode, userInfo: nil)
 				completion(nsError)
 			}
@@ -123,8 +123,39 @@ class APIController {
 		
 	}
 	
+	func fetchFeaturedBooks(completion: @escaping (Error?) -> ()) {
+		let url = URL(string: "https://lambda-bookr.herokuapp.com/api/books/?featured=true")!
+		
+		URLSession.shared.dataTask(with: url) { (data, _, error) in
+			if let error = error {
+				completion(error)
+				return
+			}
+			
+			guard let data = data else {
+				completion(NSError())
+				return
+			}
+			
+			do {
+				let booksDecoded = try JSONDecoder().decode([Book].self, from: data)
+				self.booksFeatured = booksDecoded
+				for b in booksDecoded {
+					print(b.id, " - ", b.cover_url)
+				}
+				self.fetchImageDataForBooks(books: self.booksFeatured)
+				completion(nil)
+			} catch {
+				
+				completion(error)
+				return
+			}
+			
+		}.resume()
+	}
+
 	func fetchBooks(completion: @escaping (Error?) -> ()) {
-		URLSession.shared.dataTask(with: baseUrl!) { (data, _, error) in
+		URLSession.shared.dataTask(with: baseUrl) { (data, _, error) in
 			if let error = error {
 				completion(error)
 				return
@@ -137,10 +168,13 @@ class APIController {
 			
 			do {
 				
-				let booksDecoded = try JSONDecoder().decode([Book].self, from: data)
-				for book in booksDecoded {
-					self.createBookSave(book: book)
-				}
+				let booksDecoded = try JSONDecoder().decode([BookDetail].self, from: data)
+				
+				print(booksDecoded)
+				
+				//				for book in booksDecoded {
+//					self.createBookSave(book: book)
+//				}
 				completion(nil)
 			} catch {
 				
@@ -150,21 +184,21 @@ class APIController {
 			
 			}.resume()
 	}
-	
+
 	func fetchBookDetail(bookID: Int, completion: @escaping (Result<BookDetail, Error>) -> ()) {
-		
-		let url = baseUrl?.appendingPathComponent(String(bookID))
-		URLSession.shared.dataTask(with: url!) { (data, _, error) in
+
+		let url = baseUrl.appendingPathComponent(String(bookID))
+		URLSession.shared.dataTask(with: url) { (data, _, error) in
 			if let error = error {
 				completion(.failure(error))
 				return
 			}
-			
+
 			guard let data = data else {
 				completion(.failure(NSError()))
 				return
 			}
-			
+
 			do {
 				let bookDecoded = try JSONDecoder().decode(BookDetail.self, from: data)
 				self.bookDetail.append(bookDecoded)
@@ -274,12 +308,15 @@ class APIController {
 	}
 	
 	init () {
-		fetchBooks { (error) in
-			if let error = error { print("Error fetching books", error) }
+		fetchFeaturedBooks { (error) in
+			if let error = error {
+				print("Error fetching books", error)
+			}
 		}
+		
 	}
 	
-	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books/")
+	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books/?featured=false")!
 	
 	private(set) var books: [Book] = []
 	
@@ -292,7 +329,7 @@ class APIController {
 	private(set) var users: [User] = []
 	
 	private(set) var bookSaves: [BookSave] = []
-	private(set) var booksFeatured: [BookSave] = []
+	private(set) var booksFeatured: [Book] = []
 	private(set) var favoritBooks: FavoriteBooks?
 	
 	
@@ -300,18 +337,15 @@ class APIController {
 }
 
 extension APIController {
-	private func createBookSave(book: Book) {
-		fetchImageData(with: book.cover_url, completion: { result in
-			if let dataget = try? result.get() {
-				
-				let bookSave = BookSave(id: book.id, title: book.title, isbn: book.isbn, cover_Image: dataget, description: book.description)
-				self.bookSaves.append(bookSave)
-
-				if book.featured {
-					self.booksFeatured.append(bookSave)
+	private func fetchImageDataForBooks(books: [Book]) {
+		for (index, book) in books.enumerated() {
+			fetchImageData(with: book.cover_url) { result in
+				if let result = try? result.get() {
+					print(result)
+					self.booksFeatured[index].image_data = result
 				}
 			}
-		})
+		}
 	}
 	
 	func createUser(username: String, password: String) {

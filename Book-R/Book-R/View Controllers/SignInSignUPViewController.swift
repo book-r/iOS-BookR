@@ -63,7 +63,7 @@ class SignInSignUpViewController: UIViewController {
 		}
 		
 		self.dismiss(animated: true, completion: nil)
-		print(username,"-", password)
+//		print(username,"-", password)
 	}
 	
 	@IBAction func segmentControlTapped(_ sender: UISegmentedControl) {
