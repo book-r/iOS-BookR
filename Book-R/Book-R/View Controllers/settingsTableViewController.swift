@@ -28,6 +28,7 @@ class settingsTableViewController: UITableViewController, APIControllerProtocol 
 		let alertController = UIAlertController(title: "Log Out?", message: nil, preferredStyle: .alert)
 		alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
 			self.apiController?.token = nil
+			self.apiController?.removeAllBookmarkedBooks()
 		}))
 		
 		alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
