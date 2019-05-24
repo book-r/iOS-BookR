@@ -52,18 +52,10 @@ class SubmitReviewViewController: UIViewController {
 		apiController?.submitReview(with: token, review: bookReview, completion: { error in
 			if let error = error {
 				print("error submiting review: ",error)
-//				DispatchQueue.main.async {
-//					let ac = UIAlertController(title: "Error", message: "Submiting Review failed. You already revied this book. Or please try again later.", preferredStyle: .alert)
-//					ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//					self.present(ac, animated: true)
-//				}
-
 			} else {
-				
 				self.dismiss(animated: true, completion: nil)
 			}
 		})
-		
 	}
 	
 	

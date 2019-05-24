@@ -321,11 +321,9 @@ class APIController {
 	var token: SuccessResponse?
 	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books")!
 	private(set) var booksFeatured: [Book] = []
-	
-	private(set) var books: [Book] = []
-	
-	private(set) var booksAll: [BookDetail] = [] // <<<<<<<<<
-	
+	private(set) var booksAll: [BookDetail] = []
+//	private(set) var books: [Book] = []
+
 	
 	private(set) var loggedInuser: User?
 	private(set) var users: [User] = []

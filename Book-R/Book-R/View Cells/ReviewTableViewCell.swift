@@ -12,13 +12,11 @@ class ReviewTableViewCell: UITableViewCell {
 
 	func setupViews() {
 		guard let review = review else { return }
-
 		nameLabel?.text = "user: " + review.username
 		RatingLabel?.text = "rating: " + String(Int(review.rating))
 		reviewTextView?.text = "\t" + review.comment
 	}
-	
-	
+
 	@IBOutlet var RatingLabel: UILabel!
 	@IBOutlet var nameLabel: UILabel!
 	@IBOutlet var reviewTextView: UITextView!

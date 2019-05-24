@@ -143,8 +143,8 @@
 				E81502AB2294E7EC0015329A /* BookDetailViewController.swift */,
 				E85D35B222961AB80027BD42 /* BookDetailTableViewController.swift */,
 				E85D35B422961E610027BD42 /* BookReviewsTableViewController.swift */,
-				E85D35B92296749F0027BD42 /* FavoriteViewController.swift */,
 				E8FAE98A2297134A00EED0BE /* SubmitReviewViewController.swift */,
+				E85D35B92296749F0027BD42 /* FavoriteViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
