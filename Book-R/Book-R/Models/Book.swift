@@ -10,15 +10,9 @@ import Foundation
 
 struct Book: Codable, Equatable {
 	let id: Int
-//	let title: String
-//	let isbn: String
 	let cover_url: String
 	var image_data: Data?
-//	let description: String
-//	let average: Double
-//	let edition: String
-//	let year: Int
-//	let publisher_id: Int
+
 }
 
 struct BookReview: Codable {
