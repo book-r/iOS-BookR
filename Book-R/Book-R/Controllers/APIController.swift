@@ -13,9 +13,6 @@ enum HTTPMethod: String {
 	case post = "POST"
 }
 
-//henry - test
-//Hector1234 - 1234
-
 class APIController {
 	
 	func signUp(with user: User, completion: @escaping (Error?) -> ()) {
@@ -91,8 +88,6 @@ class APIController {
 		
 		URLSession.shared.dataTask(with: request) { data, response, error in
 			if let response = response as? HTTPURLResponse{
-//				response.statusCode != 200 {
-//				print(response.statusCode)
 				let nsError = NSError(domain: "", code: response.statusCode, userInfo: nil)
 				completion(nsError)
 			}
@@ -140,9 +135,6 @@ class APIController {
 			do {
 				let booksDecoded = try JSONDecoder().decode([Book].self, from: data)
 				self.booksFeatured = booksDecoded
-//				for b in booksDecoded {
-//					print(b.id, " - ", b.cover_url)
-//				}
 				self.fetchImageDataForBooks(books: self.booksFeatured)
 				completion(nil)
 			} catch {
@@ -280,24 +272,7 @@ class APIController {
 			if let error = error {
 				completion(error)
 			}
-
-//			guard let data = data else {
-//				completion(error)
-//				return
-//			}
-//
-//			do{
-//				let decoder = JSONDecoder()
-//				let decodedData = try decoder.decode(SuccessResponse.self, from: data)
-//				self.token = decodedData
-//
-//				print(decodedData.token)
-//				completion(nil)
-//			} catch {
-//				print("error decoding token")
-//				completion(error)
-//			}
-//
+			
 			completion(nil)
 			}.resume()
 		
@@ -322,9 +297,15 @@ class APIController {
 	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books")!
 	private(set) var booksFeatured: [Book] = []
 	private(set) var booksAll: [BookDetail] = []
+	private(set) var bookmarkedBooks: [Book] = []
+	
 	
 	private(set) var loggedInuser: User?
 	private(set) var users: [User] = []
+	
+	
+	
+	
 	private(set) var favoritBooks: FavoriteBooks?
 	
 	
@@ -374,6 +355,11 @@ extension APIController {
 		return arr
 	}
 	
+	
+	
+	//////////////////////////////////////
+	//////////////////////////////////////
+	
 	func setFavorites(user: User) {
 		favoritBooks = FavoriteBooks(user: user, books: [])
 	}
@@ -381,5 +367,15 @@ extension APIController {
 	func addBookSaveToFavorites(book: BookSave) {
 		favoritBooks?.books?.append(book)
 	}
+	
+	//////////////////////////////////////
+	//////////////////////////////////////
+	
+	func addtoBookMarks(id: Int, cover_url: String, image_data: Data) {
+		let book = Book(id: id, cover_url: cover_url, image_data: image_data)
+		bookmarkedBooks.append(book)
+		print(bookmarkedBooks.count)
+	}
+	
 }
 

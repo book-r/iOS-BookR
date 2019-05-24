@@ -31,13 +31,9 @@ class SubmitReviewViewController: UIViewController {
 		guard let reviewText = reviewTextView.text,
 			let book_id = book_id,
 			let token = apiController?.token else {
-				
-				print("No token")
-				
 				let ac = UIAlertController(title: "Error", message: "Please sig in or sign up!", preferredStyle: .alert)
 				ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 				present(ac, animated: true)
-				
 				return
 		}
 		
