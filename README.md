@@ -4,8 +4,12 @@
 ###### Bookr a social platform for peer reviewed text books. 
 
 #### [Book-R API](https://lambda-bookr.herokuapp.com/api/)
-	- this app runs using the Book-R API
-
+	- this app runs using the Book-R API 
+	- You can log in with username: Hector42 , password: 4242
+	- You can also sign up.
+	- Post and view Revies
+	- Bookmark your Favorite Books
+	- sing out so peers wont see your Bookmarked books.
 	
 ###### Sign In or Sign Up with Book-R API 
 
