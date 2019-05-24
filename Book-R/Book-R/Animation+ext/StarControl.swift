@@ -89,7 +89,6 @@ class StarControl: UIControl {
 				value = label.tag
 				isRated(value: value)
 				label.performFlare()
-//				sendActions(for: [.valueChanged])
 			}
 		}
 		
@@ -98,7 +97,7 @@ class StarControl: UIControl {
 	
 	func isRated(value: Int) {
 		for i in 0..<value {
-			starLabels[i].textColor = .red
+			starLabels[i].textColor = AppearanceHelper.greenColor
 		}
 		
 		unRated(value: value)
