@@ -299,12 +299,7 @@ class APIController {
 	
 	
 	private(set) var loggedInuser: User?
-	private(set) var users: [User] = []
-	
-	private(set) var favoritBooks: FavoriteBooks?
-	
-	
-	
+
 }
 
 extension APIController {
@@ -333,7 +328,7 @@ extension APIController {
 		
 		let user = User(username: username, password: password)
 		loggedInuser = user
-		users.append(user)
+		
 		
 	}
 	
@@ -346,23 +341,11 @@ extension APIController {
 			arr.append(child.label!)
 		}
 		
-		
 		return arr
 	}
 	
-	
-	
 	//////////////////////////////////////
 	//////////////////////////////////////
-	
-	func setFavorites(user: User) {
-		favoritBooks = FavoriteBooks(user: user, books: [])
-	}
-	
-	func addBookSaveToFavorites(book: BookSave) {
-		favoritBooks?.books?.append(book)
-	}
-	
 	//////////////////////////////////////
 	//////////////////////////////////////
 	
@@ -378,3 +361,44 @@ extension APIController {
 	
 }
 
+extension APIController {
+	
+	private var PersistentStoretURL: URL? {
+		let fileManager = FileManager.default
+		guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+		let fileName = "UserFavoritesList.plist"
+		let document = documents.appendingPathComponent(fileName)
+
+		return document
+	}
+	
+	func saveToPersistentStore() {
+		guard let url = PersistentStoretURL else { return }
+		do {
+			let encoder = PropertyListEncoder()
+			let data = try encoder.encode(bookmarkedBooks)
+			try data.write(to: url)
+		} catch {
+			NSLog("Error saving book data: \(error)")
+		}
+	}
+	
+	func loadFromPersistentStore() {
+		//make sure file exist
+		let fileManager = FileManager.default
+		guard let url = PersistentStoretURL,
+			fileManager.fileExists(atPath: url.path) else {
+				print("error: loadFromPersistentStore()")
+				return
+		}
+
+		do {
+			let data = try Data(contentsOf: url)
+			let decoder = PropertyListDecoder()
+			let decodedBooks = try decoder.decode([Book].self, from: data)
+			bookmarkedBooks = decodedBooks
+		}catch {
+			NSLog("Error loading book data: \(error)")
+		}
+	}
+}

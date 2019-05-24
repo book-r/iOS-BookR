@@ -48,5 +48,30 @@ class BookmarksTableViewController: UITableViewController, APIControllerProtocol
 		}
 	}
 	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "BookmarkToDetailSegue" {
+			guard let vc = segue.destination as? BookDetailViewController,
+				let cell = sender as? BookMarksTableViewCell,
+				let indexpath = tableView.indexPath(for: cell),
+				let id  = apiController?.bookmarkedBooks[indexpath.row].id,
+				let book = getBookDetail(id: id)	else { return }
+			
+			
+			
+			vc.book = book
+			vc.apiController = apiController
+		}
+	}
+	
+	func getBookDetail(id: Int) -> BookDetail? {
+		for book in (apiController?.booksAll)! {
+			if book.id == id {
+				return book
+			}
+		}
+		return nil
+	}
+	
+	
 	var apiController: APIController?
 }
