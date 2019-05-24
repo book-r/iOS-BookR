@@ -140,9 +140,9 @@ class APIController {
 			do {
 				let booksDecoded = try JSONDecoder().decode([Book].self, from: data)
 				self.booksFeatured = booksDecoded
-				for b in booksDecoded {
-					print(b.id, " - ", b.cover_url)
-				}
+//				for b in booksDecoded {
+//					print(b.id, " - ", b.cover_url)
+//				}
 				self.fetchImageDataForBooks(books: self.booksFeatured)
 				completion(nil)
 			} catch {
@@ -201,7 +201,7 @@ class APIController {
 
 			do {
 				let bookDecoded = try JSONDecoder().decode(BookDetail.self, from: data)
-				self.bookDetail.append(bookDecoded)
+				self.booksAll.append(bookDecoded)
 				completion(.success(bookDecoded))
 			} catch {
 				completion(.failure(error))
@@ -314,22 +314,29 @@ class APIController {
 			}
 		}
 		
+		fetchBooks { error in
+			if let error = error {
+				print("error fetching books from init \(error)")
+			}
+		}
+		
 	}
 	
+	var token: SuccessResponse?
 	private let baseUrl = URL(string: "https://lambda-bookr.herokuapp.com/api/books/?featured=false")!
+	private(set) var booksFeatured: [Book] = []
 	
 	private(set) var books: [Book] = []
 	
+	private(set) var booksAll: [BookDetail] = [] // <<<<<<<<<
 	
-	private(set) var bookDetail: [BookDetail] = []
-	
-	var token: SuccessResponse?
 	
 	private(set) var loggedInuser: User?
 	private(set) var users: [User] = []
 	
 	private(set) var bookSaves: [BookSave] = []
-	private(set) var booksFeatured: [Book] = []
+	
+	
 	private(set) var favoritBooks: FavoriteBooks?
 	
 	

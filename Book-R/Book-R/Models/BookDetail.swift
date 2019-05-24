@@ -20,8 +20,10 @@ struct BookDetail: Codable, Equatable {
 	let publisher: String
 	let average: Double
 	
-	let authors: [Author]
-	let reviews: [Review]
+	var image_data: Data?
+	
+	let authors: [Author]?
+	let reviews: [Review]?
 }
 
 struct Review: Codable, Equatable {
