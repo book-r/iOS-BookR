@@ -35,5 +35,18 @@ class BookmarksTableViewController: UITableViewController, APIControllerProtocol
 		return bookmarkCell
 	}
 	
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == UITableViewCell.EditingStyle.delete {
+			let ac = UIAlertController(title: "Delete Bookmark?", message: "", preferredStyle: .actionSheet)
+		
+			ac.addAction(UIAlertAction(title: "Delete", style: .default, handler: { action in
+				self.apiController?.deleteBookFromBookMarks(index: indexPath.row)
+				self.tableView.reloadData()
+			}))
+			ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+			present(ac, animated: true)
+		}
+	}
+	
 	var apiController: APIController?
 }

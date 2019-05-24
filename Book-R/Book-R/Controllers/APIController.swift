@@ -372,5 +372,9 @@ extension APIController {
 		print(bookmarkedBooks.count)
 	}
 	
+	func deleteBookFromBookMarks(index: Int) {
+		bookmarkedBooks.remove(at: index)
+	}
+	
 }
 
