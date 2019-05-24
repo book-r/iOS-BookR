@@ -298,7 +298,7 @@ class APIController {
 	private(set) var bookmarkedBooks: [Book] = []
 	
 	
-	private(set) var loggedInuser: User?
+//	private(set) var loggedInuser: User?
 
 }
 
@@ -322,26 +322,6 @@ extension APIController {
 				}
 			}
 		}
-	}
-	
-	func createUser(username: String, password: String) {
-		
-		let user = User(username: username, password: password)
-		loggedInuser = user
-		
-		
-	}
-	
-	// return and array of the structs labels
-	func mirrorStruct(book: BookDetail) -> [String] {
-		var arr: [String] = []
-		let mirror = Mirror(reflecting: book)
-		
-		for child in mirror.children {
-			arr.append(child.label!)
-		}
-		
-		return arr
 	}
 	
 	//////////////////////////////////////
