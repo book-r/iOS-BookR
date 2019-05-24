@@ -4,10 +4,11 @@
 ###### Bookr a social platform for peer reviewed text books. 
 
 #### [Book-R API](https://lambda-bookr.herokuapp.com/api/)
+	
 
+	
 
-
-
+![signIn](https://github.com/book-r/iOS-BookR/blob/master/imagesForReadme/bookrLogIn.png)
 
 
 
@@ -20,8 +21,6 @@
 * Single Book Add Review Page - Clicking add review brings up a form (could be modal, could be its own page) where a user can add their review of the book. Clicking submit adds the review to the books information.
 * Delete Book - Modal confirming the action, on confirmation user is routed back to the home page and book is gone from the list of books. 
 * Data Modeling: Each book has a Title - String, Author - String, Publisher - String and Reviews- Array of Objects field. The * reviews object shape should be Reviewer - String, Review - String. 
-
-
 
 #
 
