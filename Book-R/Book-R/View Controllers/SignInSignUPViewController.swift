@@ -18,7 +18,11 @@ class SignInSignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//		view.backgroundColor = AppearanceHelper.greenColor
+//		segmentController.backgroundColor = .white
 		
+		
+		singInButtonOutlet.layer.cornerRadius = 8
     }
 	
 	fileprivate func logInErrorAlert(_ error: Error?) {
@@ -75,7 +79,6 @@ class SignInSignUpViewController: UIViewController {
 	}
 	
 	@IBOutlet var singInButtonOutlet: UIButton!
-	
 	@IBOutlet var usernameLabel: UITextField!
 	@IBOutlet var passwordLabel: UITextField!
 	@IBOutlet var segmentController: UISegmentedControl!

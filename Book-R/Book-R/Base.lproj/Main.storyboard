@@ -54,13 +54,13 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTG-CW-tGr">
                                         <rect key="frame" x="30" y="104" width="322" height="40"/>
-                                        <color key="backgroundColor" red="0.96862745100000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.027450980392156862" green="0.5490196078431373" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="AxY-A3-AgT"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Sign In">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="signInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lv1-An-eSb"/>
@@ -83,12 +83,13 @@
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookr_logo1" translatesAutoresizingMaskIntoConstraints="NO" id="5rW-C5-8U0">
                                 <rect key="frame" x="20" y="212" width="374" height="130"/>
+                                <color key="backgroundColor" red="0.9510807966" green="0.9510807966" blue="0.9510807966" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="ZRE-Y2-qp2"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.9510807966" green="0.9510807966" blue="0.9510807966" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5rW-C5-8U0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2se-KD-69h"/>
                             <constraint firstItem="5rW-C5-8U0" firstAttribute="top" secondItem="pnl-Cs-Phw" secondAttribute="bottom" constant="8" id="Pi7-Hb-t4W"/>
@@ -187,16 +188,20 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2LW-bb-0ac">
                                         <rect key="frame" x="0.0" y="0.0" width="183" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Book Details"/>
+                                        <color key="backgroundColor" red="0.027450980392156862" green="0.5490196078431373" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Book Details">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <segue destination="LcX-KQ-wSV" kind="showDetail" identifier="bookDetailSegue" id="yyF-7o-dcE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYi-ui-xsu">
                                         <rect key="frame" x="191" y="0.0" width="183" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Reviews"/>
+                                        <color key="backgroundColor" red="0.027450980392156862" green="0.5490196078431373" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Reviews">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <segue destination="t52-yw-OnT" kind="presentation" identifier="BookReviewsSegue" id="2BZ-bK-PuV"/>
                                         </connections>
@@ -211,13 +216,15 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bh-JU-ZQf">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.027450980392156862" green="0.5490196078431373" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="PfW-DE-NyV"/>
                                         </constraints>
-                                        <state key="normal" title="Exit"/>
+                                        <state key="normal" title="Exit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
-                                            <action selector="exitButton:" destination="7O9-Wb-zgJ" eventType="touchUpInside" id="4KF-cw-ACn"/>
+                                            <action selector="exitButton:" destination="7O9-Wb-zgJ" eventType="touchUpInside" id="kRq-CT-SFO"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -262,11 +269,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="w9n-g7-44r"/>
                     <connections>
+                        <outlet property="BookDetailOutlet" destination="2LW-bb-0ac" id="tAP-Vq-XYM"/>
+                        <outlet property="ExitOutlet" destination="9bh-JU-ZQf" id="thm-p3-N56"/>
                         <outlet property="bookImageView" destination="Sbv-7V-dYd" id="ZI5-g3-crI"/>
                         <outlet property="byLabel" destination="mUA-gp-SC9" id="rKL-o2-cFg"/>
                         <outlet property="descriptiontextView" destination="VaJ-T2-Bgv" id="o9f-0A-dda"/>
                         <outlet property="rateThisBookLabel" destination="0Wn-cR-iIN" id="J83-cj-YdU"/>
                         <outlet property="ratingLabel" destination="0Wn-cR-iIN" id="rJP-P9-PWY"/>
+                        <outlet property="reviewOutlet" destination="fYi-ui-xsu" id="gfD-IB-uQk"/>
                         <outlet property="titleLabel" destination="chW-ko-JBE" id="jaP-gQ-evy"/>
                     </connections>
                 </viewController>
@@ -466,14 +476,20 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDp-co-uba">
                                         <rect key="frame" x="0.0" y="0.0" width="183" height="30"/>
-                                        <state key="normal" title="Submit"/>
+                                        <color key="backgroundColor" red="0.027450980392156862" green="0.5490196078431373" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="submitButton:" destination="B1F-nX-2lm" eventType="touchUpInside" id="ASu-aO-3CS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ea-BI-7rR">
                                         <rect key="frame" x="191" y="0.0" width="183" height="30"/>
-                                        <state key="normal" title="Cancel"/>
+                                        <color key="backgroundColor" red="0.027450980392156862" green="0.5490196078431373" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="cancelButton:" destination="B1F-nX-2lm" eventType="touchUpInside" id="Q3h-CM-bGU"/>
                                         </connections>
@@ -481,7 +497,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.9510807966" green="0.9510807966" blue="0.9510807966" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Jqb-fU-69F" firstAttribute="trailing" secondItem="GKr-lg-b67" secondAttribute="trailing" constant="20" id="0N6-hf-ErD"/>
                             <constraint firstItem="Jqb-fU-69F" firstAttribute="trailing" secondItem="lba-u6-maQ" secondAttribute="trailing" constant="20" id="3J1-SF-PI1"/>
@@ -506,7 +522,9 @@
                         <viewLayoutGuide key="safeArea" id="Jqb-fU-69F"/>
                     </view>
                     <connections>
+                        <outlet property="cancelLabelOutlet" destination="3Ea-BI-7rR" id="mWf-Xc-OUO"/>
                         <outlet property="reviewTextView" destination="Ltq-UV-leT" id="0pJ-Ee-Fpz"/>
+                        <outlet property="submitLabelOutlet" destination="eDp-co-uba" id="XpT-Zd-GAS"/>
                         <outlet property="usernameLabel" destination="lba-u6-maQ" id="f7w-QH-9Hs"/>
                     </connections>
                 </viewController>
@@ -570,6 +588,7 @@
                                         <constraint firstItem="RVQ-08-CYk" firstAttribute="leading" secondItem="MT3-ej-Y5o" secondAttribute="trailing" constant="8" id="uli-Pd-23n"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.9510807966" green="0.9510807966" blue="0.9510807966" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="bookImageView" destination="MT3-ej-Y5o" id="znZ-sf-7nS"/>
                                     <outlet property="isbnLabel" destination="RVQ-08-CYk" id="xqY-o6-tvS"/>
@@ -600,7 +619,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ZDr-r9-rDl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.9510807966" green="0.9510807966" blue="0.9510807966" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xRG-9C-7tQ">
                             <size key="itemSize" width="149" height="156"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -753,6 +772,6 @@
         <image name="bookr_logo1" width="750" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nZV-hE-IIH"/>
+        <segue reference="Qx7-s5-dXV"/>
     </inferredMetricsTieBreakers>
 </document>

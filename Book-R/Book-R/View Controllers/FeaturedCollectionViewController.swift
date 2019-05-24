@@ -18,6 +18,8 @@ class FeaturedCollectionViewController: UICollectionViewController, APIControlle
 		}
 		
 		collectionView.reloadData()
+		
+//		print(apiController?.booksFeatured.count)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

@@ -32,6 +32,7 @@
 		E8F08E5722931ACC0083B700 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F08E5622931ACC0083B700 /* APIController.swift */; };
 		E8F08E5A229336F30083B700 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F08E59229336F30083B700 /* User.swift */; };
 		E8FAE98B2297134A00EED0BE /* SubmitReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FAE98A2297134A00EED0BE /* SubmitReviewViewController.swift */; };
+		E8FAE98D2297592A00EED0BE /* AppearanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FAE98C2297592A00EED0BE /* AppearanceHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		E8F08E5622931ACC0083B700 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		E8F08E59229336F30083B700 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E8FAE98A2297134A00EED0BE /* SubmitReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitReviewViewController.swift; sourceTree = "<group>"; };
+		E8FAE98C2297592A00EED0BE /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				E85D35AB229507660027BD42 /* StarControl.swift */,
 				E85D35AE229508890027BD42 /* UIView+ext.swift */,
+				E8FAE98C2297592A00EED0BE /* AppearanceHelper.swift */,
 			);
 			path = "Animation+ext";
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				E85D35B322961AB80027BD42 /* BookDetailTableViewController.swift in Sources */,
 				E815029F229454E80015329A /* Book.swift in Sources */,
 				E81502A52294BA1C0015329A /* BookCollectionViewCell.swift in Sources */,
+				E8FAE98D2297592A00EED0BE /* AppearanceHelper.swift in Sources */,
 				E8F08E5722931ACC0083B700 /* APIController.swift in Sources */,
 				E85D35B822965B930027BD42 /* ReviewTableViewCell.swift in Sources */,
 				E81502A322948A7C0015329A /* BookDetail.swift in Sources */,

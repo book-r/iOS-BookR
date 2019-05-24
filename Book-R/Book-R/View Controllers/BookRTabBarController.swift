@@ -16,15 +16,11 @@ class BookRTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-		
-
 		for childViewController in children {
 			if var childvc = childViewController as? APIControllerProtocol {
 				childvc.apiController = apiController
 			}
 		}
-		
 	}
 	
 	let apiController = APIController()

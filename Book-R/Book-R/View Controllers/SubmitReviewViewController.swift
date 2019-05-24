@@ -12,13 +12,13 @@ class SubmitReviewViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        setupViews()
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		setupViews()
+		submitLabelOutlet.layer.cornerRadius = 8
+		cancelLabelOutlet.layer.cornerRadius = 8
 	}
 	
     
@@ -83,5 +83,7 @@ class SubmitReviewViewController: UIViewController {
 	var apiController: APIController?
 	var book_id: Int?
 	
+	@IBOutlet var submitLabelOutlet: UIButton!
+	@IBOutlet var cancelLabelOutlet: UIButton!
 	
 }

@@ -275,7 +275,7 @@ class APIController {
 	
 	init () {
 		fetchBooks { (error) in
-			if let error = error { print(error) }
+			if let error = error { print("Error fetching books", error) }
 		}
 	}
 	
