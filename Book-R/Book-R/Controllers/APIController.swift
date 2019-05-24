@@ -370,8 +370,15 @@ extension APIController {
 	
 	
 	
-	func deleteBookFromBookMarks(index: Int) {
+	func deleteBookFromBookMarks(index: Int, username: String) {
 		bookmarkedBooks.remove(at: index)
+		
+		for (i, user) in returningUsers.enumerated() {
+			if user.username == username {
+				returningUsers[i].books = bookmarkedBooks
+			}
+		}
+		saveToPersistentStore()
 	}
 	
 }

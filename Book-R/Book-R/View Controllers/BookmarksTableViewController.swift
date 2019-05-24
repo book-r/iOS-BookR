@@ -40,8 +40,12 @@ class BookmarksTableViewController: UITableViewController, APIControllerProtocol
 			let ac = UIAlertController(title: "Delete Bookmark?", message: "", preferredStyle: .actionSheet)
 		
 			ac.addAction(UIAlertAction(title: "Delete", style: .default, handler: { action in
-				self.apiController?.deleteBookFromBookMarks(index: indexPath.row)
-				self.tableView.reloadData()
+				
+				if let token = self.apiController?.token {
+					
+					self.apiController?.deleteBookFromBookMarks(index: indexPath.row, username: token.username)
+					self.tableView.reloadData()
+				}
 			}))
 			ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 			present(ac, animated: true)
