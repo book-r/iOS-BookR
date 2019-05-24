@@ -330,7 +330,6 @@ class APIController {
 	private(set) var loggedInuser: User?
 	private(set) var users: [User] = []
 	
-	private(set) var bookSaves: [BookSave] = []
 	
 	
 	private(set) var favoritBooks: FavoriteBooks?

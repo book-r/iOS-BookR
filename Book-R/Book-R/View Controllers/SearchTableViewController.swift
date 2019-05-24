@@ -17,20 +17,17 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol{
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		searchBar.delegate = self
-		tableView.reloadData()
 	}
 
-	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return apiController?.bookSaves.count ?? 0
+		return apiController?.booksAll.count ?? 0
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "bookSerachCell", for: indexPath)
 		guard let bookcell = cell as? SearchTableViewCell else { return cell }
 		
-		let book = apiController?.bookSaves[indexPath.row]
+		let book = apiController?.booksAll[indexPath.row]
 		bookcell.book = book
 		bookcell.apiController = apiController
 		
@@ -38,37 +35,29 @@ class SearchTableViewController: UITableViewController, APIControllerProtocol{
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "bookDetailSegue" {
-			guard let vc = segue.destination as? BookDetailViewController,
-				let cell = sender as? SearchTableViewCell,
-				let indexpath = tableView.indexPath(for: cell) else { return }
-			
-			guard let currentBook = apiController?.bookSaves[indexpath.row] else { return }
-			
-			apiController?.fetchBookDetail(bookID: currentBook.id , completion: { result in
-
-				if let bookDetail = try? result.get() {
-					vc.bookDetail = bookDetail
-				} else {
-					print("error getting book Detail")
-				}
-
-			})
-			
-			vc.imageData = currentBook.cover_Image
-			vc.apiController = apiController
-		}
+//		if segue.identifier == "bookDetailSegue" {
+//			guard let vc = segue.destination as? BookDetailViewController,
+//				let cell = sender as? SearchTableViewCell,
+//				let indexpath = tableView.indexPath(for: cell) else { return }
+//
+//			guard let currentBook = apiController?.booksAll[indexpath.row] else { return }
+//
+////			apiController?.fetchBookDetail(bookID: currentBook.id , completion: { result in
+////
+////				if let bookDetail = try? result.get() {
+////					vc.bookDetail = bookDetail
+////				} else {
+////					print("error getting book Detail")
+////				}
+////
+////			})
+//
+//			vc.imageData = currentBook.cover_Image
+//			vc.apiController = apiController
+//		}
 	}
-	
-	
-	@IBOutlet var searchBar: UISearchBar!
+
 	var apiController: APIController?
 }
 
 
-extension SearchTableViewController: UISearchBarDelegate  {
-	func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-		print(searchBar.text!)
-	}
-	
-}

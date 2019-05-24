@@ -12,18 +12,13 @@ class SearchTableViewCell: UITableViewCell, APIControllerProtocol {
 
 	
 	private func setupViews() {
-		guard let book = book else { return }
+		guard let book = book,
+			let image_data = book.image_data else { return }
 		
 		titleLabel.text =  book.title
 		isbnLabel.text = "isbn: " + book.isbn
-		
-		if let image = UIImage(data: book.cover_Image) {
-			bookImageView.image = image
-			
-		} else {
-			print("No Image!!")
-			bookImageView.image = #imageLiteral(resourceName: "temp_bkCover")
-		}
+		bookImageView.image = UIImage(data: image_data)
+
 	}
 	
 	@IBOutlet var bookImageView: UIImageView!
@@ -31,7 +26,7 @@ class SearchTableViewCell: UITableViewCell, APIControllerProtocol {
 	@IBOutlet var isbnLabel: UILabel!
 	var apiController: APIController?
 	
-	var book: BookSave? {
+	var book: BookDetail? {
 		didSet { setupViews()}
 	}
 }

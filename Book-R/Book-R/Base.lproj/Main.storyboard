@@ -540,14 +540,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="qSH-KP-H7L">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookSerachCell" rowHeight="200" id="Ydu-JU-JmH" customClass="SearchTableViewCell" customModule="Book_R" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ydu-JU-JmH" id="ZXv-Bd-v7F">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
@@ -604,9 +599,6 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" systemItem="search" id="Ccj-Yx-iNV"/>
                     <navigationItem key="navigationItem" id="1SH-Zd-tiB"/>
-                    <connections>
-                        <outlet property="searchBar" destination="qSH-KP-H7L" id="nRS-c9-i5o"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KjB-gB-alf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
